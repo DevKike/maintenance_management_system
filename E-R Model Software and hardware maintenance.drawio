@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36" version="24.7.7">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36" modified="2024-08-14T15:10:39.115Z" version="23.1.2" etag="V4Uk3B4AUWG5dPTaYizZ" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="1730" dy="1608" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="1885" dy="1648" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -206,8 +206,8 @@
             <mxPoint x="469.8198051533948" y="212.85786437626905" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="M3-LgQZIASoPt2PxyCOy-4" value="- Anotaciones:&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Crear entidad usuario para solicitante&lt;/div&gt;&lt;div&gt;&amp;nbsp;y ténico que contenga la firma&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Qué tipo de dato es la firma?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- La entrega debería de ir&amp;nbsp;&lt;/div&gt;&lt;div&gt;asociada a la solicitud también?&lt;br&gt;&lt;br&gt;- El mantenimiento debería&lt;/div&gt;&lt;div&gt;tener un técnico asociado?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Crear entidad técnico?&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="840" y="-25" width="230" height="210" as="geometry" />
+        <mxCell id="M3-LgQZIASoPt2PxyCOy-4" value="- Anotaciones:&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Crear entidad usuario para solicitante&lt;/div&gt;&lt;div&gt;&amp;nbsp;y ténico que contenga la firma&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Qué tipo de dato es la firma?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- La entrega debería de ir&amp;nbsp;&lt;/div&gt;&lt;div&gt;asociada a la solicitud también?&lt;br&gt;&lt;br&gt;- El mantenimiento debería&lt;/div&gt;&lt;div&gt;tener un técnico asociado?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Crear entidad técnico?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Crear un atributo entrega_estado para&amp;nbsp;&lt;br&gt;para saber desde la solicitud si ya&amp;nbsp;&lt;br&gt;se genero la entrega&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="835" y="-55" width="240" height="270" as="geometry" />
         </mxCell>
         <mxCell id="M3-LgQZIASoPt2PxyCOy-5" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;endArrow=none;endFill=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="M3-LgQZIASoPt2PxyCOy-6" target="dJolps0Q9v0tlvChTq3d-5" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -232,6 +232,9 @@
         </mxCell>
         <mxCell id="M3-LgQZIASoPt2PxyCOy-10" value="hora_fin" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="310" y="510" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="r3yc4gjAzl05o8N3JT3U-1" value="&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="885" y="198" width="30" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
