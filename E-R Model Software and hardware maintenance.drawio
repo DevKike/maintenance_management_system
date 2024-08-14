@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36" version="24.7.7">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="1583" dy="423" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="2107" dy="726" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -77,8 +77,8 @@
             <mxPoint x="430" y="170" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="dJolps0Q9v0tlvChTq3d-21" value="Realiza" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="270" y="130" width="80" height="80" as="geometry" />
+        <mxCell id="dJolps0Q9v0tlvChTq3d-21" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Realiza&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="270" y="126" width="110" height="90" as="geometry" />
         </mxCell>
         <mxCell id="dJolps0Q9v0tlvChTq3d-24" value="hora_solicitud" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="530" y="38" width="90" height="40" as="geometry" />
@@ -113,8 +113,8 @@
         <mxCell id="dJolps0Q9v0tlvChTq3d-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" parent="1" source="dJolps0Q9v0tlvChTq3d-35" target="dJolps0Q9v0tlvChTq3d-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="dJolps0Q9v0tlvChTq3d-35" value="Genera" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="515" y="260" width="70" height="70" as="geometry" />
+        <mxCell id="dJolps0Q9v0tlvChTq3d-35" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Solicita&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="511" y="269" width="115" height="100" as="geometry" />
         </mxCell>
         <mxCell id="dJolps0Q9v0tlvChTq3d-47" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=0.965;entryY=0.952;entryDx=0;entryDy=0;endArrow=none;endFill=0;entryPerimeter=0;" parent="1" source="dJolps0Q9v0tlvChTq3d-38" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -137,11 +137,11 @@
         <mxCell id="dJolps0Q9v0tlvChTq3d-41" value="tipo" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="650" y="400" width="90" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="dJolps0Q9v0tlvChTq3d-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="dJolps0Q9v0tlvChTq3d-50" target="dJolps0Q9v0tlvChTq3d-5" edge="1">
+        <mxCell id="dJolps0Q9v0tlvChTq3d-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;" parent="1" source="dJolps0Q9v0tlvChTq3d-50" target="dJolps0Q9v0tlvChTq3d-5" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="dJolps0Q9v0tlvChTq3d-50" value="Genera" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="780" y="445" width="70" height="70" as="geometry" />
+        <mxCell id="dJolps0Q9v0tlvChTq3d-50" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Genera&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="810" y="427.5" width="110" height="105" as="geometry" />
         </mxCell>
         <mxCell id="dJolps0Q9v0tlvChTq3d-58" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" parent="1" source="dJolps0Q9v0tlvChTq3d-53" target="dJolps0Q9v0tlvChTq3d-5" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -206,8 +206,8 @@
             <mxPoint x="469.8198051533948" y="212.85786437626905" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="M3-LgQZIASoPt2PxyCOy-4" value="- Anotaciones:&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Crear entidad usuario para solicitante&lt;/div&gt;&lt;div&gt;&amp;nbsp;y ténico que contenga la firma&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Qué tipo de dato es la firma?&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="815" y="63" width="230" height="100" as="geometry" />
+        <mxCell id="M3-LgQZIASoPt2PxyCOy-4" value="- Anotaciones:&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Crear entidad usuario para solicitante&lt;/div&gt;&lt;div&gt;&amp;nbsp;y ténico que contenga la firma&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Qué tipo de dato es la firma?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- La entrega debería de ir&amp;nbsp;&lt;/div&gt;&lt;div&gt;asociada a la solicitud también?&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="840" y="10" width="230" height="140" as="geometry" />
         </mxCell>
         <mxCell id="M3-LgQZIASoPt2PxyCOy-5" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;endArrow=none;endFill=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="M3-LgQZIASoPt2PxyCOy-6" target="dJolps0Q9v0tlvChTq3d-5" edge="1">
           <mxGeometry relative="1" as="geometry">
