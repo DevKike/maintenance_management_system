@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36" version="24.7.7">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="2107" dy="726" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="1730" dy="1608" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -200,14 +200,14 @@
         <mxCell id="dJolps0Q9v0tlvChTq3d-75" value="extensión" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="165" y="237" width="90" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="M3-LgQZIASoPt2PxyCOy-3" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1" target="dJolps0Q9v0tlvChTq3d-67">
+        <mxCell id="M3-LgQZIASoPt2PxyCOy-3" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" parent="1" target="dJolps0Q9v0tlvChTq3d-67" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="493" y="197" as="sourcePoint" />
             <mxPoint x="469.8198051533948" y="212.85786437626905" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="M3-LgQZIASoPt2PxyCOy-4" value="- Anotaciones:&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Crear entidad usuario para solicitante&lt;/div&gt;&lt;div&gt;&amp;nbsp;y ténico que contenga la firma&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Qué tipo de dato es la firma?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- La entrega debería de ir&amp;nbsp;&lt;/div&gt;&lt;div&gt;asociada a la solicitud también?&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="840" y="10" width="230" height="140" as="geometry" />
+        <mxCell id="M3-LgQZIASoPt2PxyCOy-4" value="- Anotaciones:&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Crear entidad usuario para solicitante&lt;/div&gt;&lt;div&gt;&amp;nbsp;y ténico que contenga la firma&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Qué tipo de dato es la firma?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- La entrega debería de ir&amp;nbsp;&lt;/div&gt;&lt;div&gt;asociada a la solicitud también?&lt;br&gt;&lt;br&gt;- El mantenimiento debería&lt;/div&gt;&lt;div&gt;tener un técnico asociado?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Crear entidad técnico?&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="840" y="-25" width="230" height="210" as="geometry" />
         </mxCell>
         <mxCell id="M3-LgQZIASoPt2PxyCOy-5" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;endArrow=none;endFill=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="M3-LgQZIASoPt2PxyCOy-6" target="dJolps0Q9v0tlvChTq3d-5" edge="1">
           <mxGeometry relative="1" as="geometry">
