@@ -3,9 +3,9 @@ version: '3.8'
 services:
     mysql:
         image: mysql:8.0.39
-        container_name: notly-container
+        container_name: unicolombo-app-container
         environment:
-            MYSQL_ROOT_PASSWORD: ${DB_PASS}
+            MYSQL_ROOT_PASSWORD: Alvaro1516!
         ports:
             - 3306:3306
         volumes:
