@@ -1,13 +1,11 @@
 import express from "express";
-import { config } from "dotenv";
-config();
+import { Constant } from "./shared/constants/Constant";
 
 const app = express();
-const PORT = process?.env?.PORT || 3001;
 
-app.listen(PORT, () => {
+app.listen(Constant.PORT, () => {
   try {
-    console.log(`Server running at port ${PORT}`);
+    console.log(`Server running at port ${Constant.PORT}`);
   } catch (error) {
     console.error(error);
   }
