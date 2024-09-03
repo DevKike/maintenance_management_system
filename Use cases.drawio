@@ -1,9 +1,81 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36" version="24.7.7">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0" version="24.7.10">
   <diagram name="Página-1" id="slRdnjjuHF7EVNd0lsjX">
-    <mxGraphModel>
+    <mxGraphModel dx="1455" dy="526" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-21" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="1">
+          <mxGeometry x="250" y="100" width="300.62" height="470" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-14" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="ijQ2Wkxo8JsokQV01jov-1" target="ijQ2Wkxo8JsokQV01jov-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-15" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="ijQ2Wkxo8JsokQV01jov-1" target="ijQ2Wkxo8JsokQV01jov-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-16" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="ijQ2Wkxo8JsokQV01jov-1" target="ijQ2Wkxo8JsokQV01jov-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-18" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="ijQ2Wkxo8JsokQV01jov-1" target="ijQ2Wkxo8JsokQV01jov-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-19" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="ijQ2Wkxo8JsokQV01jov-1" target="ijQ2Wkxo8JsokQV01jov-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-20" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="ijQ2Wkxo8JsokQV01jov-1" target="ijQ2Wkxo8JsokQV01jov-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-26" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="ijQ2Wkxo8JsokQV01jov-1" target="ijQ2Wkxo8JsokQV01jov-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-27" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="ijQ2Wkxo8JsokQV01jov-1" target="ijQ2Wkxo8JsokQV01jov-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-1" value="Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="250" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-4" value="Crear roles" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="140" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-5" value="Crear departamentos" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="338.75" y="190" width="135" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-6" value="Crear procesos" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="348.75" y="240" width="112.5" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-7" value="Crear etapas" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="348.75" y="290" width="112.5" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-8" value="Crear formatos" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="338.75" y="340" width="135" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-9" value="Crear campos" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="338.75" y="390" width="135" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-30" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="ijQ2Wkxo8JsokQV01jov-22" target="ijQ2Wkxo8JsokQV01jov-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-32" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="ijQ2Wkxo8JsokQV01jov-22" target="ijQ2Wkxo8JsokQV01jov-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-22" value="Coordinador" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="620" y="140" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-24" value="Crear mantenimiento correctivo" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="338.75" y="440" width="135" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-25" value="Crear mantenimiento preventivo" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="338.75" y="490" width="135" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-28" value="Seleccionar departamento" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="135" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-29" value="Crear planificacion de mantenimientos" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="120" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ijQ2Wkxo8JsokQV01jov-31" value="Solicitud de insumos para el mantenimiento preventivo" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="180" width="170" height="50" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
