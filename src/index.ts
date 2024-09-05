@@ -1,16 +1,21 @@
-import express from "express";
+import express, { Application } from "express";
 import { Constant } from "./shared/constants/Constant";
-import { AppDataSource } from "./infrastructure/database/orm/config/typeorm.config";
+import { appDataSource } from "./infrastructure/database/orm/config/typeorm";
+import { RouterManager } from "./infrastructure/driving/RouterManager";
 
-const app = express();
+const application: Application = express();
+const app: Application = application;
 
-app.listen(Constant.PORT, () => {
+app.listen(Constant.PORT, async () => {
   try {
-    AppDataSource.initialize();
-
+    await appDataSource.initialize();
     console.log("Data Source has been initialized!");
-    console.log(`Server running at port ${Constant.PORT}`);
+    console.log(`Server running at port http://localhost:${Constant.PORT}`);
   } catch (error) {
     console.error(error);
+    process.exit(1);
   }
+
+  const routerManager = new RouterManager(application);
+  routerManager.manageRoutes();
 });
