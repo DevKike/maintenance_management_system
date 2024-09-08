@@ -2,7 +2,7 @@ import { config } from "dotenv";
 config();
 
 export class Constant {
-  static readonly PORT = process?.env?.PORT || 3001;
+  static readonly PORT = process?.env?.PORT || "3001";
   static readonly DB_TYPE = process?.env?.DB_TYPE;
   static readonly DB_HOST = process?.env?.DB_HOST;
   static readonly DB_PORT = process?.env?.DB_PORT;
