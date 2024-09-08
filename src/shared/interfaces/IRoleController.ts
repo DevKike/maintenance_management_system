@@ -1,6 +1,5 @@
-import { Response } from "express";
-import { IRole } from "../../domain/entities/IRole";
+import { Request, Response, NextFunction } from "express";
 
 export interface IRoleController {
-  getRoles(res: Response): Promise<IRole[]>;
+  getRoles(req: Request, res: Response, next: NextFunction): Promise<void>;
 }
