@@ -1,18 +1,25 @@
 import { IRole } from "../../domain/entities/IRole";
-import { IRoleService } from "../../domain/services/IRoleService";
 import { IRoleUseCase } from "../../domain/usecases/IRoleUseCase";
 import { RoleService } from "../../infrastructure/services/RoleService";
+import { NotFoundException } from "../../shared/exceptions/NotFoundException";
+import { Message } from "../../shared/messages/Message";
 
 export class RoleUseCase implements IRoleUseCase {
-  private roleService: IRoleService;
+  private roleService: RoleService;
 
-  constructor({ roleService }: { roleService: IRoleService }) {
+  constructor(roleService: RoleService) {
     this.roleService = roleService;
   }
 
   async getRoles(): Promise<IRole[]> {
     try {
-      return await this.roleService.getRoles();
+      const roles = await this.roleService.getRoles();
+
+      if (!roles || roles.length === 0) {
+        throw new NotFoundException(Message.ROLE_NOT_FOUND);
+      }
+
+      return roles;
     } catch (error) {
       throw error;
     }
