@@ -1,21 +1,24 @@
 import { Router } from "express";
-import { RoleController } from "./RoleController";
 import { IRouterModule } from "../../../shared/interfaces/IRouterModule";
-import { IRoleController } from "../../../shared/interfaces/IRoleController";
+import { RoleController } from "./RoleController";
 
 export class RoleRouter implements IRouterModule {
-  public readonly roleRouter: Router;
-  private readonly roleController: IRoleController;
+  private roleRouter: Router;
+  private roleController: RoleController;
 
-  constructor() {
+  constructor(roleController: RoleController) {
     this.roleRouter = Router();
-    this.roleController = new RoleController();
+    this.roleController = roleController;
+    this.initRoutes();
   }
 
-  initRoutes(): Router {
-    this.roleRouter.get("/roles", (req, res) => {
-      this.roleController.getRoles(res);
+  initRoutes(): void {
+    this.roleRouter.get("/roles", (req, res, next) => {
+      this.roleController.getRoles(req, res, next);
     });
+  }
+
+  getRouter(): Router {
     return this.roleRouter;
   }
 }
