@@ -9,6 +9,11 @@ import { RoleController } from "./driving/role/RoleController";
 import { appDataSource } from "./database/orm/config/typeorm";
 import { Message } from "../shared/messages/Message";
 import { Constant } from "../shared/constants/Constant";
+import { ActorRouter } from "./driving/actor/ActorRouter";
+import { ActorRepository } from "./repositories/ActorRepository";
+import { ActorService } from "./services/ActorService";
+import { ActorUseCase } from "../application/usecases/ActorUseCase";
+import { ActorController } from "./driving/actor/ActorController";
 
 export class Application {
   public app: App;
@@ -30,8 +35,15 @@ export class Application {
     const roleUseCase = new RoleUseCase(roleService);
     const roleController = new RoleController(roleUseCase);
 
+    const actorRepository = new ActorRepository(appDataSource);
+    const actorService = new ActorService(actorRepository);
+    const actorUseCase = new ActorUseCase(actorService);
+    const actorController = new ActorController(actorUseCase);
+
     const roleRouter = new RoleRouter(roleController);
-    const routerManager = new RouterManager(this.app, roleRouter);
+    const actorRouter = new ActorRouter(actorController)
+
+    const routerManager = new RouterManager(this.app, roleRouter, actorRouter);
     routerManager.manageRoutes();
   }
 
