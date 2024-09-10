@@ -1,6 +1,5 @@
 import { DataSource } from "typeorm";
 import { Constant } from "../../../../shared/constants/Constant";
-import { Role } from "../../entities/Role";
 import { join } from "path";
 
 export const appDataSource = new DataSource({
@@ -10,7 +9,7 @@ export const appDataSource = new DataSource({
   username: Constant.DB_USERNAME,
   password: Constant.DB_PASSWORD,
   database: Constant.DB_NAME,
-  entities: [Role],
+  entities: [join(__dirname, "../../entities/**/*.ts")],
   migrations: [join(__dirname, "../migrations/**/*.ts")],
   migrationsTableName: "migration_table",
   synchronize: false,
