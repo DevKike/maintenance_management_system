@@ -16,8 +16,7 @@ export class RoleController implements IRoleController {
   async getRoles(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       const roles = await this.roleUseCase.getRoles();
-      await this.responseModel.manageResponse(Promise.resolve(roles), res);
-      res.status(HttpStatusCode.SUCCESS).json(roles);
+      await this.responseModel.manageResponse(Promise.resolve(roles), res, HttpStatusCode.SUCCESS, roles);
     } catch (error) {
       next(error);
     }
