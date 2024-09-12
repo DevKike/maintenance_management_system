@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
-import { IRole } from "../../../domain/entities/IRole";
+import { IRole } from "../../../domain/interfaces/role/IRole";
 
 @Entity()
 export class Role implements IRole {

@@ -1,16 +1,20 @@
 import { DataSource, Repository } from "typeorm";
-import { IRoleRepository } from "../../domain/repositories/IRoleRepository";
+import { IRoleRepository } from "../../domain/interfaces/role/IRoleRepository";
 import { Role } from "../database/entities/Role";
-import { IRole } from "../../domain/entities/IRole";
+import { IRole } from "../../domain/interfaces/role/IRole";
 
 export class RoleRepository implements IRoleRepository {
-  private roleRepository: Repository<Role>;
+  private readonly roleRepository: Repository<Role>;
 
-  constructor(dataSource: DataSource) {
-    this.roleRepository = dataSource.getRepository(Role);
+  constructor(private readonly dataSource: DataSource) {
+    this.roleRepository = this.dataSource.getRepository(Role);
   }
 
   async getAll(): Promise<IRole[]> {
-    return await this.roleRepository.find();
+    try {
+      return await this.roleRepository.find();
+    } catch (error) {
+      throw error;
+    }
   }
 }

@@ -1,5 +1,6 @@
 import { Column, Entity, PrimaryColumn } from "typeorm";
-import { IActor } from "../../../domain/entities/IActor";
+import { IActor } from "../../../domain/interfaces/actor/IActor";
+import { Status } from "../../../domain/enums/actor/Status";
 
 @Entity()
 export class Actor implements IActor {
@@ -20,4 +21,7 @@ export class Actor implements IActor {
 
   @Column()
   email: string;
+
+  @Column()
+  status: Status;
 }

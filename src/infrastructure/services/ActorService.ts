@@ -1,15 +1,12 @@
-import { IActor } from "../../domain/entities/IActor";
-import { IActorService } from "../../domain/services/IActorService";
-import { ActorRepository } from "../repositories/ActorRepository";
+import { IActor } from "../../domain/interfaces/actor/IActor";
+import { IActorRepository } from "../../domain/interfaces/actor/IActorRepository";
+import { IActorService } from "../../domain/interfaces/actor/IActorService";
 
 export class ActorService implements IActorService {
-  private actorRepository: ActorRepository;
-
-  constructor(actorRepository: ActorRepository) {
-    this.actorRepository = actorRepository;
-  }
+  constructor(private readonly actorRepository: IActorRepository) {}
 
   async createActor(actor: IActor): Promise<void> {
+    
     await this.actorRepository.save(actor);
   }
 }
