@@ -4,13 +4,13 @@ import { RouterManager } from "./infrastructure/express/driving/RouterManager";
 import { RoleRouter } from "./infrastructure/express/driving/role/RoleRouter";
 import { RoleRepository } from "./infrastructure/repositories/RoleRepository";
 import { RoleService } from "./infrastructure/services/RoleService";
-import { GetAllRolesUseCase } from "./application/usecases/role/GetAllRolesUseCase";
+import { RoleUseCase } from "./application/usecases/role/RoleUseCase";
 import { RoleController } from "./infrastructure/express/driving/role/RoleController";
 import { AppDataSource } from "./infrastructure/database/config/typeorm";
 import { ActorRouter } from "./infrastructure/express/driving/actor/ActorRouter";
 import { ActorRepository } from "./infrastructure/repositories/ActorRepository";
 import { ActorService } from "./infrastructure/services/ActorService";
-import { CreateActorUseCase } from "./application/usecases/actor/CreateActorUseCase";
+import { ActorUseCase } from "./application/usecases/actor/ActorUseCase";
 import { ActorController } from "./infrastructure/express/driving/actor/ActorController";
 import { Environment } from "./infrastructure/environment/Environment";
 
@@ -31,13 +31,13 @@ export class Application {
   private initRoutes(): void {
     const roleRepository = new RoleRepository(AppDataSource);
     const roleService = new RoleService(roleRepository);
-    const getAllRolesUseCase = new GetAllRolesUseCase(roleService);
-    const roleController = new RoleController(getAllRolesUseCase);
+    const roleUseCase = new RoleUseCase(roleService);
+    const roleController = new RoleController(roleUseCase);
 
     const actorRepository = new ActorRepository(AppDataSource);
     const actorService = new ActorService(actorRepository);
-    const createActorUseCase = new CreateActorUseCase(actorService);
-    const actorController = new ActorController(createActorUseCase);
+    const actorUseCase = new ActorUseCase(actorService);
+    const actorController = new ActorController(actorUseCase);
 
     const roleRouter = new RoleRouter(roleController);
     const actorRouter = new ActorRouter(actorController)

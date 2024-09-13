@@ -6,7 +6,6 @@ export class ActorService implements IActorService {
   constructor(private readonly actorRepository: IActorRepository) {}
 
   async createActor(actor: IActor): Promise<void> {
-    
     await this.actorRepository.save(actor);
   }
 }
