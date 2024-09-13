@@ -1,5 +1,5 @@
 import { IRole } from "./IRole";
 
 export interface IRoleUseCase {
-  getAll(): Promise<IRole[]>;
+  getRoles(): Promise<IRole[]>;
 }
