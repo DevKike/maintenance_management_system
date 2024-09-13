@@ -1,7 +1,7 @@
 import { DataSource, Repository } from "typeorm";
-import { IRoleRepository } from "../../domain/interfaces/role/IRoleRepository";
-import { Role } from "../database/entities/Role";
-import { IRole } from "../../domain/interfaces/role/IRole";
+import { IRoleRepository } from "../../../domain/interfaces/role/IRoleRepository";
+import { Role } from "../../database/entities/Role";
+import { IRole } from "../../../domain/interfaces/role/IRole";
 
 export class RoleRepository implements IRoleRepository {
   private readonly roleRepository: Repository<Role>;

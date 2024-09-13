@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { IRouterModule } from "../../interfaces/driving/IRouterModule";
-import { schemaValidator } from "../../../middleware/schemaValidator";
+import { schemaValidator } from "../../middlewares/schemaValidator";
 import { createActorSchema } from "../../../schemas/actor/actorSchema";
 import { IActorController } from "../../interfaces/driving/actor/IActorController";
 

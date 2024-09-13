@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { HttpStatusCode } from "../express/http/HttpStatusCode";
+import { HttpStatusCode } from "../http/HttpStatusCode";
 import Joi from "joi";
 
 export const schemaValidator =

@@ -1,7 +1,7 @@
 import { DataSource, Repository } from "typeorm";
-import { IActor } from "../../domain/interfaces/actor/IActor";
-import { IActorRepository } from "../../domain/interfaces/actor/IActorRepository";
-import { Actor } from "../database/entities/Actor";
+import { IActor } from "../../../domain/interfaces/actor/IActor";
+import { IActorRepository } from "../../../domain/interfaces/actor/IActorRepository";
+import { Actor } from "../../database/entities/Actor";
 
 export class ActorRepository implements IActorRepository {
   private readonly actorRepository: Repository<Actor>;
