@@ -1,5 +1,6 @@
-import { Request, Response, NextFunction } from "express";
+import { IHttpRequest } from "../../http/IHttpRequest";
+import { IHttpResponse } from "../../http/IHttpResponse";
 
 export interface IActorController {
-  createActor(req: Request, res: Response, next: NextFunction): Promise<void>;
+  createActor(req: IHttpRequest, res: IHttpResponse, next: (error: Error) => void): Promise<void>;
 }

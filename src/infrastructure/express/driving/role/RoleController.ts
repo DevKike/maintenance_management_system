@@ -1,22 +1,22 @@
-import { Request, Response, NextFunction } from "express";
-import { HttpResponseModel } from "../../http/HttpResponseModel";
 import { IRoleController } from "../../interfaces/driving/role/IRoleController";
 import { IRoleUseCase } from "../../../../domain/interfaces/role/IRoleUseCase";
 import { HttpStatusCode } from "../../http/HttpStatusCode";
+import { IHttpResponse } from "../../interfaces/http/IHttpResponse";
+import { IHttpRequest } from "../../interfaces/http/IHttpRequest";
 
 export class RoleController implements IRoleController {
-  private httpResponseModel: HttpResponseModel;
+  constructor(private readonly roleUseCase: IRoleUseCase) {}
 
-  constructor(private readonly roleUseCase: IRoleUseCase) {
-    this.httpResponseModel = new HttpResponseModel();
-  }
-
-  async getRoles(req: Request, res: Response, next: NextFunction): Promise<void> {
+  async getRoles(
+    req: IHttpRequest,
+    res: IHttpResponse,
+    next: (error: Error) => void
+  ): Promise<void> {
     try {
-      const roles = await this.roleUseCase.getAll();
-      await this.httpResponseModel.manageResponse(Promise.resolve(roles), res, HttpStatusCode.OK, roles);
+      const roles = await this.roleUseCase.getRoles();
+      res.statusCode(HttpStatusCode.OK).json(roles);
     } catch (error) {
-      next(error);
+      next(error as Error);
     }
   }
 }
