@@ -9,7 +9,7 @@ export const AppDataSource = new DataSource({
   username: Environment.DB_USERNAME,
   password: Environment.DB_PASSWORD,
   database: Environment.DB_NAME,
-  entities: [join(__dirname, "../../entities/**/*.ts")],
+  entities: [join(__dirname, "../entities/**/*.ts")],
   migrations: [join(__dirname, "../migrations/**/*.ts")],
   migrationsTableName: "migration_table",
   synchronize: false,
