@@ -1,6 +1,7 @@
-import { IActor } from "../../../domain/interfaces/actor/IActor";
-import { IActorRepository } from "../../../domain/interfaces/actor/IActorRepository";
-import { IActorService } from "../../../domain/interfaces/actor/IActorService";
+import { IActor } from "../../../domain/entities/actor/IActor";
+import { IActorRepository } from "../../../domain/entities/actor/IActorRepository";
+import { IActorService } from "../../../domain/entities/actor/IActorService";
+
 
 export class ActorService implements IActorService {
   constructor(private readonly actorRepository: IActorRepository) {}

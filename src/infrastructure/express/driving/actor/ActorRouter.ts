@@ -1,27 +1,29 @@
-import { NextFunction, Request, Response, Router } from "express";
 import { IRouterModule } from "../../interfaces/driving/IRouterModule";
-import { schemaValidator } from "../../middlewares/schemaValidator";
-import { createActorSchema } from "../../../schemas/actor/actorSchema";
-import { IActorController } from "../../interfaces/driving/actor/IActorController";
-import { ExpressHttpResponse } from "../../response/ExpressHttpResponse";
-import { IHttpRequest } from "../../interfaces/http/IHttpRequest";
-import { IHttpRouter } from "../../interfaces/http/IHttpRouter";
-import { IHttpResponse } from "../../interfaces/http/IHttpResponse";
+import { HttpStatusCode } from "../../../../domain/enums/httpStatusCode/HttpStatusCode";
+import { IActorUseCase } from "../../../../domain/entities/actor/IActorUseCase";
+import { Router } from "express";
 
 export class ActorRouter implements IRouterModule {
-  private readonly actorRouter: IHttpRouter;
+  private readonly actorRouter: Router;
 
-  constructor(private readonly actorController: IActorController) {
+  constructor(private readonly actorUseCase: IActorUseCase) {
+    this.actorRouter = Router();
     this.initRoutes();
   }
 
   initRoutes(): void {
-    this.actorRouter.post("/", (req, res , next) => {
-      this.actorController.createActor(req, res, next);
-    })
+    this.actorRouter.post("/", async (req, res, next) => {
+      try {
+        const actor = req.body;
+        await this.actorUseCase.createActor(actor);
+        res.status(HttpStatusCode.CREATED).json({message: "User created with success"});
+      } catch (error) {
+        next(error);
+      }
+    });
   }
 
-  getRouter(): IHttpRouter {
+  getRouter(): Router {
     return this.actorRouter;
   }
 }

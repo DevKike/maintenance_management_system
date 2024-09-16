@@ -1,12 +1,12 @@
 import { Response } from "express";
-import { HttpStatusCode } from "../http/HttpStatusCode";
-import { MessageConstants } from "../messages/MessageConstants";
+import { HttpStatusCode } from "../../../domain/enums/httpStatusCode/HttpStatusCode";
+import { Message } from "../../../domain/enums/message/Message";
 
 export interface IHttpResponseModel {
   manageResponse(
     promise: Promise<any>,
     res: Response,
     statusCode: HttpStatusCode,
-    message: MessageConstants
+    message: Message
   ): Promise<void>;
 }

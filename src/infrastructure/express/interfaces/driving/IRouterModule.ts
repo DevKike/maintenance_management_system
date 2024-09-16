@@ -1,6 +1,6 @@
-import { IHttpRouter } from "../http/IHttpRouter";
+import { Router } from "express";
 
 export interface IRouterModule {
   initRoutes(): void;
-  getRouter(): IHttpRouter;
+  getRouter(): Router;
 }

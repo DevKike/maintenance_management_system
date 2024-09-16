@@ -1,44 +1,50 @@
 import express, { Application as App } from "express";
 import { ErrorHandler } from "./express/middlewares/ErrorHandler";
+import { AppDataSource } from "./database/config/typeorm";
+import { Environment } from "./environment/Environment";
+import { IRouterManager } from "./express/interfaces/driving/IRouterManager";
 import { RouterManager } from "./express/driving/RouterManager";
 import { RoleRouter } from "./express/driving/role/RoleRouter";
-import { RoleRepository } from "./repositories/role/RoleRepository";
-import { RoleService } from "./services/role/RoleService";
 import { RoleUseCase } from "../application/usecases/role/RoleUseCase";
-import { RoleController } from "./express/driving/role/RoleController";
-import { AppDataSource } from "./database/config/typeorm";
-import { ActorRouter } from "./express/driving/actor/ActorRouter";
+import { RoleService } from "./services/role/RoleService";
+import { RoleRepository } from "./repositories/role/RoleRepository";
 import { ActorRepository } from "./repositories/actor/ActorRepository";
 import { ActorService } from "./services/actor/ActorService";
 import { ActorUseCase } from "../application/usecases/actor/ActorUseCase";
-import { ActorController } from "./express/driving/actor/ActorController";
-import { Environment } from "./environment/Environment";
-import { ExpressServer } from "./express/server/ExpressServer";
-import { IHttpServer } from "./express/interfaces/http/IHttpServer";
-import { IRouterManager } from "./express/interfaces/driving/IRouterManager";
+import { ActorRouter } from "./express/driving/actor/ActorRouter";
 
 export class Application {
-  private httpServer: IHttpServer;
+  public app: App;
   private routerManager: IRouterManager;
 
-  constructor(httpServer: IHttpServer, routerManager: IRouterManager) {
-    this.httpServer = httpServer;
-    this.routerManager = routerManager;
+  constructor() {
+    this.app = express();
     this.initMiddlewares();
     this.initRoutes();
     this.initErrorHandling();
   }
 
   private initMiddlewares(): void {
-    this.httpServer.setMiddleware(express.json());
+    this.app.use(express.json());
   }
 
   private initRoutes(): void {
-    this.routerManager.manageRoutes();
+    const roleRepository = new RoleRepository(AppDataSource);
+    const roleService = new RoleService(roleRepository);
+    const roleUseCase = new RoleUseCase(roleService);
+    const roleRouter = new RoleRouter(roleUseCase);
+
+    const actorRepository = new ActorRepository(AppDataSource);
+    const actorService = new ActorService(actorRepository);
+    const actorUseCase = new ActorUseCase(actorService);
+    const actorRouter = new ActorRouter(actorUseCase);
+
+    const routerManager = new RouterManager(this.app, roleRouter, actorRouter);
+    routerManager.manageRoutes();
   }
 
   private initErrorHandling(): void {
-    this.httpServer.use(ErrorHandler.handle);
+    this.app.use(ErrorHandler.handle);
   }
 
   private async initDatabase(): Promise<void> {
@@ -53,7 +59,7 @@ export class Application {
 
   public async listen(): Promise<void> {
     await this.initDatabase();
-    await this.httpServer.listen(Environment.PORT);
+    this.app.listen(Environment.PORT);
     console.log(`Server running at http://localhost/${Environment.PORT}`);
   }
 }

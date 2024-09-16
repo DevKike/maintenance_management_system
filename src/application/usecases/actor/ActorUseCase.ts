@@ -1,6 +1,7 @@
-import { IActor } from "../../../domain/interfaces/actor/IActor";
-import { IActorUseCase } from "../../../domain/interfaces/actor/IActorUseCase";
-import { IActorService } from "../../../domain/interfaces/actor/IActorService";
+import { IActor } from "../../../domain/entities/actor/IActor";
+import { IActorService } from "../../../domain/entities/actor/IActorService";
+import { IActorUseCase } from "../../../domain/entities/actor/IActorUseCase";
+
 
 export class ActorUseCase implements IActorUseCase {
   constructor(private readonly actorService: IActorService) {}

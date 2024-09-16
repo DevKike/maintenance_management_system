@@ -1,6 +1,7 @@
-import { IRole } from "../../../domain/interfaces/role/IRole";
-import { IRoleService } from "../../../domain/interfaces/role/IRoleService";
-import { IRoleUseCase } from "../../../domain/interfaces/role/IRoleUseCase";
+import { IRole } from "../../../domain/entities/role/IRole";
+import { IRoleService } from "../../../domain/entities/role/IRoleService";
+import { IRoleUseCase } from "../../../domain/entities/role/IRoleUseCase";
+
 
 export class RoleUseCase implements IRoleUseCase {
   constructor(private readonly roleService: IRoleService) {}

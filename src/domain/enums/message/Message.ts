@@ -1,4 +1,4 @@
 export enum Message {
     USER_CREATED_SUCCESSFULLY = "COD001",
-    
+    INTERNAL_SERVER_ERROR = "COD010",
 }

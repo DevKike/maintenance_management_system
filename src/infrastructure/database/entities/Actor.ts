@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryColumn } from "typeorm";
-import { IActor } from "../../../domain/interfaces/actor/IActor";
-import { Status } from "../../../domain/enums/actor/Status";
+import { IActor } from "../../../domain/entities/actor/IActor";
+import { Status } from "../../../domain/enums/actorStatus/Status";
 
 @Entity()
 export class Actor implements IActor {
