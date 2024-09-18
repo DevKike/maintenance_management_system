@@ -1,6 +1,7 @@
 import { Column, Entity, PrimaryColumn } from "typeorm";
 import { IActor } from "../../../domain/entities/actor/IActor";
-import { Status } from "../../../domain/enums/actorStatus/Status";
+import { Status } from "../../../domain/enums/actor/Status";
+import { DocumentType } from "../../../domain/enums/actor/DocumentType";
 
 @Entity()
 export class Actor implements IActor {
@@ -8,7 +9,7 @@ export class Actor implements IActor {
   document_number: number;
 
   @Column()
-  document_type: string;
+  document_type: DocumentType;
 
   @Column()
   name: string;
