@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { HttpStatusCode } from "../http/HttpStatusCode";
+import { HttpStatusCode } from "../../../domain/enums/httpStatusCode/HttpStatusCode";
 import Joi from "joi";
 
 export const schemaValidator =
