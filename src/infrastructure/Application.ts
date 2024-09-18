@@ -2,7 +2,7 @@ import express, { Application as App } from "express";
 import { ErrorHandler } from "./express/middlewares/ErrorHandler";
 import { AppDataSource } from "./database/config/typeorm";
 import { Environment } from "./environment/Environment";
-import { IRouterManager } from "./express/interfaces/driving/IRouterManager";
+import { IRouterManager } from "./express/interfaces/IRouterManager";
 import { RouterManager } from "./express/driving/RouterManager";
 import { RoleRouter } from "./express/driving/role/RoleRouter";
 import { RoleUseCase } from "../application/usecases/role/RoleUseCase";
@@ -12,6 +12,7 @@ import { ActorRepository } from "./repositories/actor/ActorRepository";
 import { ActorService } from "./services/actor/ActorService";
 import { ActorUseCase } from "../application/usecases/actor/ActorUseCase";
 import { ActorRouter } from "./express/driving/actor/ActorRouter";
+import { ResponseModel } from "./express/response/ResponseModel";
 
 export class Application {
   public app: App;
@@ -37,7 +38,8 @@ export class Application {
     const actorRepository = new ActorRepository(AppDataSource);
     const actorService = new ActorService(actorRepository);
     const actorUseCase = new ActorUseCase(actorService);
-    const actorRouter = new ActorRouter(actorUseCase);
+    const actorResponseModel = new ResponseModel();
+    const actorRouter = new ActorRouter(actorUseCase, actorResponseModel);
 
     const routerManager = new RouterManager(this.app, roleRouter, actorRouter);
     routerManager.manageRoutes();
@@ -60,6 +62,6 @@ export class Application {
   public async listen(): Promise<void> {
     await this.initDatabase();
     this.app.listen(Environment.PORT);
-    console.log(`Server running at http://localhost/${Environment.PORT}`);
+    console.log(`Server running at http://localhost:${Environment.PORT}`);
   }
 }
