@@ -1,5 +1,5 @@
 import { Application } from "express";
-import { IRouterManager } from "../interfaces/driving/IRouterManager";
+import { IRouterManager } from "../interfaces/IRouterManager";
 import { ActorRouter } from "./actor/ActorRouter";
 import { RoleRouter } from "./role/RoleRouter";
 

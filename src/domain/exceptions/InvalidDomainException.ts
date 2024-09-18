@@ -1,4 +1,4 @@
-import { HttpStatusCode } from "../../infrastructure/express/http/HttpStatusCode";
+import { HttpStatusCode } from "../enums/httpStatusCode/HttpStatusCode";
 
 export class InvalidDomainException extends Error {
   public readonly httpStatusCode: HttpStatusCode;

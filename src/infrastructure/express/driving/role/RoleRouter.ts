@@ -1,4 +1,4 @@
-import { IRouterModule } from "../../interfaces/driving/IRouterModule";
+import { IRouterModule } from "../../interfaces/IRouterModule";
 import { HttpStatusCode } from "../../../../domain/enums/httpStatusCode/HttpStatusCode";
 import { IRoleUseCase } from "../../../../domain/entities/role/IRoleUseCase";
 import { Router } from "express";
