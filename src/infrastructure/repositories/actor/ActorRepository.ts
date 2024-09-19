@@ -17,4 +17,12 @@ export class ActorRepository implements IActorRepository {
       throw error;
     }
   }
+
+  async getAll(): Promise<IActor[]> {
+    try {
+      return await this.actorRepository.find();
+    } catch (error) {
+      throw error;
+    }
+  }
 }

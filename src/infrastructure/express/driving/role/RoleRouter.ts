@@ -15,9 +15,9 @@ export class RoleRouter implements IRouterModule {
 
   initRoutes(): void {
     this.roleRouter.get("/", async (req, res) => {
-      this.roleUseCase.getRoles()
+      await this.roleUseCase.getRoles()
       .then((result) => {
-        return ResponseModel.manageResponse(Promise.resolve(result), res, HttpStatusCode.OK, Message.ROLE_OBTAINED_SUCCESSFULLY);
+        return ResponseModel.manageResponse(Promise.resolve(result), res, HttpStatusCode.OK, Message.ROLES_OBTAINED_SUCCESSFULLY);
       })
       .catch((error) => {
         return ResponseModel.manageResponse(Promise.resolve(error), res, HttpStatusCode.INTERNAL_SERVER_ERROR, Message.INTERNAL_SERVER_ERROR)
