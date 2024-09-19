@@ -10,10 +10,12 @@ export class ResponseModel {
     message: Message
   ): Promise<void> {
     try {
-      await promise;
-      res.status(statusCode).json(message);
-    }  catch (error) {
-      res.status(HttpStatusCode.INTERNAL_SERVER_ERROR).json({ error: Message.INTERNAL_SERVER_ERROR });
+      const result = await promise;
+      res.status(statusCode).json({ message, data: result });
+    } catch (error) {
+      res
+        .status(HttpStatusCode.INTERNAL_SERVER_ERROR)
+        .json({ error: Message.INTERNAL_SERVER_ERROR });
     }
   }
 }

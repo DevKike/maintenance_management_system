@@ -17,21 +17,11 @@ export class ActorRouter implements IRouterModule {
 
   initRoutes(): void {
     this.actorRouter.post("/", schemaValidator(createActorSchema), async (req, res) => {
-      const actor = req.body;
-      await this.actorUseCase.createActor(actor)
-        .then((result) => {
-          return ResponseModel.manageResponse(Promise.resolve(result), res, HttpStatusCode.CREATED, Message.ACTOR_CREATED_SUCCESSFULLY);
-        })
-        .catch((error) => {
-          return ResponseModel.manageResponse(Promise.resolve(error), res, HttpStatusCode.INTERNAL_SERVER_ERROR, Message.INTERNAL_SERVER_ERROR);
-        });
+      await ResponseModel.manageResponse(this.actorUseCase.createActor(req.body), res, HttpStatusCode.CREATED, Message.ACTOR_CREATED_SUCCESSFULLY);
     });
 
     this.actorRouter.get("/", async (req, res) => {
-      await this.actorUseCase.getActors()
-      .then((result) => {
-        return ResponseModel.manageResponse(Promise.resolve(result), res, HttpStatusCode.OK, Message.ACTORS_OBTAINED_SUCCESSFULLY);
-      });
+      await ResponseModel.manageResponse(this.actorUseCase.getActors(), res, HttpStatusCode.OK, Message.ACTORS_OBTAINED_SUCCESSFULLY);
     });
   }
 
