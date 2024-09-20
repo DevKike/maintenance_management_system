@@ -20,4 +20,12 @@ export class ActorService implements IActorService {
       throw error;
     }
   }
+
+  async getOneByDocumentNumber(documentNumber: number): Promise<IActor | null> {
+    try {
+      return await this.actorRepository.getOneById(documentNumber);
+    } catch (error) {
+      throw error;
+    }
+  }
 }
