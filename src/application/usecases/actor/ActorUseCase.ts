@@ -14,7 +14,7 @@ export class ActorUseCase implements IActorUseCase {
       throw new AlreadyExistsException(Message.ACTOR_ALREADY_EXISTS_EXCEPTION);
     }
     
-    //await this.actorService.createActor(actor);
+    await this.actorService.createActor(actor);
   }
 
   async getActors(): Promise<IActor[]> {
