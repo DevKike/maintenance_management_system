@@ -10,9 +10,9 @@ export class RoleUseCase implements IRoleUseCase {
   async getRoles(): Promise<IRole[]> {
     const roles = await this.roleService.getRoles();
 
-    /* if (!roles || roles.length === 0) {
+    if (!roles || roles.length === 0) {
       throw new NotFoundException(Message.NOT_ROLES_FOUND);
-    } */
+    }
 
     return roles;
   }
