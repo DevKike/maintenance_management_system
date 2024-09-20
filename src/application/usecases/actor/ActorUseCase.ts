@@ -3,6 +3,7 @@ import { IActorService } from "../../../domain/entities/actor/IActorService";
 import { IActorUseCase } from "../../../domain/entities/actor/IActorUseCase";
 import { Message } from "../../../domain/enums/message/Message";
 import { AlreadyExistsException } from "../../../domain/exceptions/AlreadyExistsException";
+import { NotFoundException } from "../../../domain/exceptions/NotFoundException";
 
 export class ActorUseCase implements IActorUseCase {
   constructor(private readonly actorService: IActorService) {}
@@ -18,6 +19,12 @@ export class ActorUseCase implements IActorUseCase {
   }
 
   async getActors(): Promise<IActor[]> {
-    return await this.actorService.getActors();
+    const actors = await this.actorService.getActors();
+
+    if(!actors || actors.length === 0) {
+      throw new NotFoundException(Message.NOT_ACTORS_FOUND);
+    }
+
+    return actors;
   }
 }
