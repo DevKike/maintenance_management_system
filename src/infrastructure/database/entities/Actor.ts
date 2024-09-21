@@ -1,7 +1,8 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryColumn } from "typeorm";
 import { IActor } from "../../../domain/entities/actor/IActor";
 import { Status } from "../../../domain/enums/actor/Status";
 import { DocumentType } from "../../../domain/enums/actor/DocumentType";
+import { Role } from "./Role";
 
 @Entity()
 export class Actor implements IActor {
@@ -25,4 +26,7 @@ export class Actor implements IActor {
 
   @Column()
   status: Status;
+
+  @ManyToOne(() => Role, (role) => role.actors)
+  role: Role;
 }

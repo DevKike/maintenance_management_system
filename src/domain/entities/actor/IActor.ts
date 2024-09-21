@@ -1,5 +1,6 @@
 import { DocumentType } from "../../enums/actor/DocumentType";
 import { Status } from "../../enums/actor/Status";
+import { IRole } from "../role/IRole";
 
 export interface IActor {
   document_number: number;
@@ -9,4 +10,5 @@ export interface IActor {
   phone_number: string;
   email: string;
   status: Status;
+  role: IRole;
 }
