@@ -3,12 +3,13 @@ import { Status } from "../../enums/actor/Status";
 import { IRole } from "../role/IRole";
 
 export interface IActor {
-  document_number: number;
-  document_type: DocumentType;
+  id: string;
   name: string;
   last_name: string;
   phone_number: string;
   email: string;
-  status: Status;
+  document_number: number;
+  document_type: DocumentType;
   role: IRole;
+  status: Status;
 }

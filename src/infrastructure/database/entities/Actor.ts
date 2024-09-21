@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, PrimaryColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { IActor } from "../../../domain/entities/actor/IActor";
 import { Status } from "../../../domain/enums/actor/Status";
 import { DocumentType } from "../../../domain/enums/actor/DocumentType";
@@ -6,11 +6,8 @@ import { Role } from "./Role";
 
 @Entity()
 export class Actor implements IActor {
-  @PrimaryColumn()
-  document_number: number;
-
-  @Column()
-  document_type: DocumentType;
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
   @Column()
   name: string;
@@ -25,8 +22,14 @@ export class Actor implements IActor {
   email: string;
 
   @Column()
-  status: Status;
+  document_number: number;
+
+  @Column()
+  document_type: DocumentType;
 
   @ManyToOne(() => Role, (role) => role.actors)
   role: Role;
+
+  @Column()
+  status: Status;
 }
