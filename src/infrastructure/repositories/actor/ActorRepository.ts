@@ -12,7 +12,7 @@ export class ActorRepository implements IActorRepository {
 
   async save(actor: IActor): Promise<void> {
     try {
-      await this.actorRepository.insert(actor);
+      await this.actorRepository.save(actor);
     } catch (error) {
       throw error;
     }
