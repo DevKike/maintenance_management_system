@@ -3,7 +3,7 @@ import { Status } from "../../enums/actor/Status";
 import { IRole } from "../role/IRole";
 
 export interface IActor {
-  id: string;
+  id: number;
   name: string;
   last_name: string;
   phone_number: string;
