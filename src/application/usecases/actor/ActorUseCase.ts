@@ -21,7 +21,7 @@ export class ActorUseCase implements IActorUseCase {
   async getActors(page: number, limit: number): Promise<IActor[]> {
     const actors = await this.actorService.getActors(page, limit);
 
-    if(!actors || actors.length === 0) {
+    if (!actors || actors.length === 0) {
       throw new NotFoundException(Message.NOT_ACTORS_FOUND);
     }
 
@@ -29,6 +29,12 @@ export class ActorUseCase implements IActorUseCase {
   }
 
   async getActorById(id: number): Promise<IActor | null> {
-      return await this.actorService.getActorById(id);
+    const actor = await this.actorService.getActorById(id);
+
+    if (!actor) {
+      throw new NotFoundException(Message.NOT_ACTOR_FOUND);
+    }
+
+    return actor;
   }
 }
