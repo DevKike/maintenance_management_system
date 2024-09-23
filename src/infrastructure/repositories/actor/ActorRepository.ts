@@ -31,7 +31,7 @@ export class ActorRepository implements IActorRepository {
 
   async getOneById(id: number): Promise<IActor | null> {
     try {
-      return await this.actorRepository.findOneBy({ id: id.toString() });
+      return await this.actorRepository.findOneBy({ id: id });
     } catch (error) {
       throw error;
     }

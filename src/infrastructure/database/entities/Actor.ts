@@ -7,7 +7,7 @@ import { Role } from "./Role";
 @Entity()
 export class Actor implements IActor {
   @PrimaryGeneratedColumn()
-  id: string;
+  id: number;
 
   @Column()
   name: string;

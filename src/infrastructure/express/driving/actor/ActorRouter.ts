@@ -19,9 +19,10 @@ export class ActorRouter implements IRouterModule {
     this.actorRouter.post("/", schemaValidator(createActorSchema), async (req, res) => {
       await ResponseModel.manageResponse(this.actorUseCase.createActor(req.body), res, HttpStatusCode.CREATED, Message.ACTOR_CREATED_SUCCESSFULLY);
     });
+    
     this.actorRouter.get("/", async (req, res) => {
-      const page = parseInt(req.query.page as string) || 1;
-      const limit = parseInt(req.query.limit as string) || 10;
+      const page = Number(req.query.page as string) || 1;
+      const limit = Number(req.query.limit as string) || 10;
       await ResponseModel.manageResponse(this.actorUseCase.getActors(page, limit), res, HttpStatusCode.OK, Message.ACTORS_OBTAINED_SUCCESSFULLY);
     });
 
