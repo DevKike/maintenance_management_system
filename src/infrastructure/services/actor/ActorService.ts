@@ -1,3 +1,4 @@
+import { start } from "repl";
 import { IActor } from "../../../domain/entities/actor/IActor";
 import { IActorRepository } from "../../../domain/entities/actor/IActorRepository";
 import { IActorService } from "../../../domain/entities/actor/IActorService";
@@ -13,9 +14,10 @@ export class ActorService implements IActorService {
     }
   }
 
-  async getActors(): Promise<IActor[]> {
+  async getActors(page: number, limit: number): Promise<IActor[]> {
     try {
-      return await this.actorRepository.getAll();
+      const skip = (page - 1) * limit;
+      return await this.actorRepository.getAll(limit, skip);
     } catch (error) {
       throw error;
     }

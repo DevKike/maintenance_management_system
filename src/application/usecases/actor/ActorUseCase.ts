@@ -18,8 +18,8 @@ export class ActorUseCase implements IActorUseCase {
     await this.actorService.createActor(actor);
   }
 
-  async getActors(): Promise<IActor[]> {
-    const actors = await this.actorService.getActors();
+  async getActors(page: number, limit: number): Promise<IActor[]> {
+    const actors = await this.actorService.getActors(page, limit);
 
     if(!actors || actors.length === 0) {
       throw new NotFoundException(Message.NOT_ACTORS_FOUND);
