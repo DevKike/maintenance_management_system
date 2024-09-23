@@ -1,4 +1,3 @@
-import { start } from "repl";
 import { IActor } from "../../../domain/entities/actor/IActor";
 import { IActorRepository } from "../../../domain/entities/actor/IActorRepository";
 import { IActorService } from "../../../domain/entities/actor/IActorService";
@@ -23,9 +22,9 @@ export class ActorService implements IActorService {
     }
   }
 
-  async getOneByDocumentNumber(documentNumber: number): Promise<IActor | null> {
+  async getActorById(id: number): Promise<IActor | null> {
     try {
-      return await this.actorRepository.getOneById(documentNumber);
+      return await this.actorRepository.getOneById(id);
     } catch (error) {
       throw error;
     }

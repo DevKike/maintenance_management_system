@@ -24,9 +24,15 @@ export class ActorRouter implements IRouterModule {
       const limit = parseInt(req.query.limit as string) || 10;
       await ResponseModel.manageResponse(this.actorUseCase.getActors(page, limit), res, HttpStatusCode.OK, Message.ACTORS_OBTAINED_SUCCESSFULLY);
     });
+
+    this.actorRouter.get("/:id", async (req, res) => {
+      const id = Number(req.params.id);
+      await ResponseModel.manageResponse(this.actorUseCase.getActorById(id), res, HttpStatusCode.OK, Message.ACTOR_OBTAINED_SUCCESSFULLY);
+    })
   }
 
   getRouter(): Router {
     return this.actorRouter;
   }
+
 }
