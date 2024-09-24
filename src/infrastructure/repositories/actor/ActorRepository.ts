@@ -23,6 +23,7 @@ export class ActorRepository implements IActorRepository {
       return await this.actorRepository.find({
         take: limit, 
         skip,
+        relations: ["role"],
       });
     } catch (error) {
       throw error;
@@ -31,7 +32,10 @@ export class ActorRepository implements IActorRepository {
 
   async getOneById(id: number): Promise<IActor | null> {
     try {
-      return await this.actorRepository.findOneBy({ id: id });
+      return await this.actorRepository.findOne({
+        where: { id: id },
+        relations: ["role"],
+      });
     } catch (error) {
       throw error;
     }
