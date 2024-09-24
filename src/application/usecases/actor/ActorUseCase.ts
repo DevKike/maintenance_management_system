@@ -9,9 +9,11 @@ export class ActorUseCase implements IActorUseCase {
   constructor(private readonly actorService: IActorService) {}
 
   async createActor(actor: IActor): Promise<void> {
-    const isExisting = await this.actorService.getActorById(actor.document_number);
+    const documentNumberIsExisting = await this.actorService.getActorByDocumentNumber(actor.document_number);
+    const emailIsExisting = await this.actorService.getActorByEmail(actor.email);
+    const phoneNumberIsExisting = await this.actorService.getActorByPhoneNumber(actor.phone_number);
 
-    if (isExisting) {
+    if (documentNumberIsExisting || emailIsExisting || phoneNumberIsExisting) {
       throw new AlreadyExistsException(Message.ACTOR_ALREADY_EXISTS_EXCEPTION);
     }
     

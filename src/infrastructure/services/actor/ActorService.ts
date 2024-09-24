@@ -24,7 +24,31 @@ export class ActorService implements IActorService {
 
   async getActorById(id: number): Promise<IActor | null> {
     try {
-      return await this.actorRepository.getOneById(id);
+      return await this.actorRepository.getOneByParams("id", id);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getActorByDocumentNumber(document_number: number): Promise<IActor | null> {
+    try {
+      return await this.actorRepository.getOneByParams("document_number", document_number);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getActorByEmail(email: string): Promise<IActor | null> {
+    try {
+      return await this.actorRepository.getOneByParams("email", email);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getActorByPhoneNumber(phone_number: string): Promise<IActor | null> {
+    try {
+      return await this.actorRepository.getOneByParams("phone_number", phone_number);
     } catch (error) {
       throw error;
     }
