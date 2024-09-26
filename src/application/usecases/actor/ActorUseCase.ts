@@ -9,14 +9,13 @@ export class ActorUseCase implements IActorUseCase {
   constructor(private readonly actorService: IActorService) {}
 
   async createActor(actor: IActor): Promise<void> {
-    const documentNumberIsExisting = await this.actorService.getActorByDocumentNumber(actor.document_number);
-    const emailIsExisting = await this.actorService.getActorByEmail(actor.email);
-    const phoneNumberIsExisting = await this.actorService.getActorByPhoneNumber(actor.phone_number);
+    const actorId = { id: actor.id };
+    const isActorExisting = await this.getActorByQueryParams(actorId);
 
-    if (documentNumberIsExisting || emailIsExisting || phoneNumberIsExisting) {
+    if (isActorExisting) {
       throw new AlreadyExistsException(Message.ACTOR_ALREADY_EXISTS_EXCEPTION);
     }
-    
+
     await this.actorService.createActor(actor);
   }
 
@@ -30,8 +29,8 @@ export class ActorUseCase implements IActorUseCase {
     return actors;
   }
 
-  async getActorById(id: number): Promise<IActor | null> {
-    const actor = await this.actorService.getActorById(id);
+  async getActorByQueryParams(params: Partial<IActor>): Promise<IActor | null> {
+    const actor = await this.actorService.getActorByQueryParams(params);
 
     if (!actor) {
       throw new NotFoundException(Message.NOT_ACTOR_FOUND);

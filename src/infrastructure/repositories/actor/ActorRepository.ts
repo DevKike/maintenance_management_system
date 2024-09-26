@@ -30,10 +30,10 @@ export class ActorRepository implements IActorRepository {
     }
   }
 
-  async getOneByParams(params: keyof IActor, value: string | number): Promise<IActor | null> {
+  async getOneByQueryParams(params: Partial<IActor>): Promise<IActor | null> {
     try {
       return await this.actorRepository.findOne({
-        where: { [params]: value },
+        where: params,
         relations: ["role"],
       });
     } catch (error) {
