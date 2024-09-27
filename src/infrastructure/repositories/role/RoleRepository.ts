@@ -3,7 +3,6 @@ import { IRole } from "../../../domain/entities/role/IRole";
 import { Role } from "../../database/entities/Role";
 import { IRoleRepository } from "../../../domain/entities/role/IRoleRepository";
 
-
 export class RoleRepository implements IRoleRepository {
   private readonly roleRepository: Repository<Role>;
 
@@ -14,6 +13,14 @@ export class RoleRepository implements IRoleRepository {
   async getAll(): Promise<IRole[]> {
     try {
       return await this.roleRepository.find();
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getOneById(id: number): Promise<IRole | null> {
+    try {
+      return await this.roleRepository.findOneBy({ id });
     } catch (error) {
       throw error;
     }
