@@ -10,7 +10,7 @@ export class ActorUseCase implements IActorUseCase {
 
   async createActor(actor: IActor): Promise<void> {
     const actorId = { id: actor.id };
-    const isActorExisting = await this.getActorByQueryParams(actorId);
+    const isActorExisting = await this.getActorsByQueryParams(actorId);
 
     if (isActorExisting) {
       throw new AlreadyExistsException(Message.ACTOR_ALREADY_EXISTS_EXCEPTION);
@@ -29,10 +29,10 @@ export class ActorUseCase implements IActorUseCase {
     return actors;
   }
 
-  async getActorByQueryParams(params: Partial<IActor>): Promise<IActor | null> {
-    const actor = await this.actorService.getActorByQueryParams(params);
+  async getActorsByQueryParams(params: Partial<IActor>): Promise<IActor[]> {
+    const actor = await this.actorService.getActorsByQueryParams(params);
 
-    if (!actor) {
+    if (!actor || actor.length === 0) {
       throw new NotFoundException(Message.NOT_ACTOR_FOUND);
     }
 
