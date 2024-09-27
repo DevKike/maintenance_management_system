@@ -12,4 +12,8 @@ export class RoleService implements IRoleService {
   async getRoles(): Promise<IRole[]> {
     return await this.roleRepository.getAll();
   }
+
+  async getRoleById(id: number): Promise<IRole | null> {
+    return await this.roleRepository.getOneById(id);
+  }
 }
