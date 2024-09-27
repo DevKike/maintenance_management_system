@@ -26,8 +26,8 @@ export class ActorRouter implements IRouterModule {
       await ResponseModel.manageResponse(this.actorUseCase.getActors(page, limit), res, HttpStatusCode.OK, Message.ACTORS_OBTAINED_SUCCESSFULLY);
     });
 
-    this.actorRouter.get("/one", async (req, res) => {
-      await ResponseModel.manageResponse(this.actorUseCase.getActorByQueryParams(req.query), res, HttpStatusCode.OK, Message.ACTOR_OBTAINED_SUCCESSFULLY);
+    this.actorRouter.get("/by", async (req, res) => {
+      await ResponseModel.manageResponse(this.actorUseCase.getActorsByQueryParams(req.query), res, HttpStatusCode.OK, Message.ACTOR_OBTAINED_SUCCESSFULLY);
     })
   }
 
