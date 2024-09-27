@@ -23,9 +23,9 @@ export class ActorService implements IActorService {
   }
 
   
-  async getActorByQueryParams(params: Partial<IActor>): Promise<IActor | null> {
+  async getActorsByQueryParams(params: Partial<IActor>): Promise<IActor[]> {
     try {
-      return await this.actorRepository.getOneByQueryParams(params);
+      return await this.actorRepository.getByQueryParams(params);
     } catch (error) {
       throw error;
     }
