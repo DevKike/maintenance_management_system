@@ -11,6 +11,7 @@ import { ActorRepository } from "../repositories/actor/ActorRepository";
 import { ActorService } from "../services/actor/ActorService";
 import { ActorUseCase } from "../../application/usecases/actor/ActorUseCase";
 import { ActorRouter } from "./driving/actor/ActorRouter";
+import cors from "cors";
 
 export class Application {
   public app: App;
@@ -24,6 +25,9 @@ export class Application {
 
   private initMiddlewares(): void {
     this.app.use(express.json());
+    this.app.use(cors());
+    this.app.use(cors({ origin: "http://localhost:4200/" }));
+    
   }
 
   private initRoutes(): void {
