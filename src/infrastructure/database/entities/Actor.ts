@@ -37,5 +37,5 @@ export class Actor implements IActor {
   status: Status;
 
   @ManyToOne(() => Role, (role) => role.actors)
-  role: Role;
+  role: Role["id"];
 }

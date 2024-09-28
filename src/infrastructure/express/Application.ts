@@ -14,7 +14,7 @@ import { ActorRouter } from "./driving/actor/ActorRouter";
 
 export class Application {
   public app: App;
-  private readonly routerManager: IRouterManager;
+  private routerManager: IRouterManager;
 
   constructor() {
     this.app = express();
@@ -34,11 +34,11 @@ export class Application {
 
     const actorRepository = new ActorRepository(AppDataSource);
     const actorService = new ActorService(actorRepository);
-    const actorUseCase = new ActorUseCase(actorService);
+    const actorUseCase = new ActorUseCase(actorService, roleService);
     const actorRouter = new ActorRouter(actorUseCase);
 
-    const routerManager = new RouterManager(this.app, roleRouter, actorRouter);
-    routerManager.manageRoutes();
+    this.routerManager = new RouterManager(this.app, roleRouter, actorRouter);
+    this.routerManager.manageRoutes();
   }
 
   private async initDatabase(): Promise<void> {

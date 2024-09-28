@@ -20,7 +20,7 @@ export class RoleRepository implements IRoleRepository {
 
   async getOneById(id: number): Promise<IRole | null> {
     try {
-      return await this.roleRepository.findOneBy({ id });
+      return await this.roleRepository.findOneBy({ id: id });
     } catch (error) {
       throw error;
     }

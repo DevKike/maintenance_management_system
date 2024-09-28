@@ -13,5 +13,5 @@ export interface IActor {
   created_at: Date,
   updated_at: Date,
   status: Status;
-  role: IRole;
+  role: IRole["id"];
 }
