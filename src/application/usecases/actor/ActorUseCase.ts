@@ -10,18 +10,27 @@ export class ActorUseCase implements IActorUseCase {
   constructor(private readonly actorService: IActorService, private readonly roleService: IRoleService) {}
 
   async createActor(actor: IActor): Promise<void> {
-    const queryParams: Partial<IActor> = {
-      id: actor.id,
-      phone_number: actor.phone_number,
-      email: actor.email,
-      document_number: actor.document_number,
-    };
-
-    const isActorExisting = await this.actorService.getActorsByQueryParams(queryParams);
-
-     if (isActorExisting.length > 0) {
-      throw new AlreadyExistsException(Message.ACTOR_ALREADY_EXISTS_EXCEPTION);
+    if (actor.phone_number) {
+      const existingActorByPhoneNumber = await this.actorService.getActorsByQueryParams({ phone_number: actor.phone_number });
+      if (existingActorByPhoneNumber.length > 0) {
+        throw new AlreadyExistsException(`${Message.ACTOR_ALREADY_EXISTS_EXCEPTION} with phone_number: ${actor.phone_number}`);
+      }
     }
+
+    if (actor.email) {
+      const existingActorByEmail = await this.actorService.getActorsByQueryParams({ email: actor.email });
+      if (existingActorByEmail.length > 0) {
+        throw new AlreadyExistsException(`${Message.ACTOR_ALREADY_EXISTS_EXCEPTION} with email: ${actor.email}`);
+      }
+    }
+
+    if (actor.document_number) {
+      const existingActorByDocumentNumber = await this.actorService.getActorsByQueryParams({ document_number: actor.document_number });
+      if (existingActorByDocumentNumber.length > 0) {
+        throw new AlreadyExistsException(`${Message.ACTOR_ALREADY_EXISTS_EXCEPTION} with document_number: ${actor.document_number}`);
+      }
+    }
+    
 
     const actorRoleId = actor.role;
     const isActorRoleExisting = await this.roleService.getRoleById(actorRoleId);
