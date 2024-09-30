@@ -1,5 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
-import { IRole } from "../../../domain/entities/IRole";
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import { IRole } from "../../../domain/entities/role/IRole";
+import { Actor } from "./Actor";
 
 @Entity()
 export class Role implements IRole {
@@ -11,4 +12,7 @@ export class Role implements IRole {
 
   @Column("text")
   description: string;
+
+  @OneToMany(() => Actor, (actor) => actor.role)
+  actors: Actor[];
 }

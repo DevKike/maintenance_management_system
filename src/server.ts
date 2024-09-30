@@ -1,4 +1,4 @@
-import { Application } from "./infrastructure/Application";
+import { Application } from "./infrastructure/express/Application";
 
 (async () => {
   const app = new Application();
