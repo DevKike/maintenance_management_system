@@ -1,5 +1,6 @@
 import { DocumentType } from "../../enums/actor/DocumentType";
 import { Status } from "../../enums/actor/Status";
+import { IDepartment } from "../department/IDepartment";
 import { IRole } from "../role/IRole";
 
 export interface IActor {
@@ -14,4 +15,5 @@ export interface IActor {
   updated_at: Date,
   status: Status;
   role: IRole["id"];
+  department: IDepartment["id"];
 }

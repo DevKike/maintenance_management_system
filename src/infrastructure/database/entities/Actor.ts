@@ -3,6 +3,7 @@ import { IActor } from "../../../domain/entities/actor/IActor";
 import { Status } from "../../../domain/enums/actor/Status";
 import { DocumentType } from "../../../domain/enums/actor/DocumentType";
 import { Role } from "./Role";
+import { Department } from "./Department";
 
 @Entity()
 export class Actor implements IActor {
@@ -38,4 +39,7 @@ export class Actor implements IActor {
 
   @ManyToOne(() => Role, (role) => role.actors)
   role: Role["id"];
+
+  @ManyToOne(() => Department, (department) => department.actors)
+  department: Department["id"];
 }
