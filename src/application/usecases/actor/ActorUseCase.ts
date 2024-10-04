@@ -55,10 +55,7 @@ export class ActorUseCase implements IActorUseCase {
       throw new NotFoundException(Message.NOT_ROLES_FOUND);
     }
 
-    if (
-      actor.role === RoleId.SYSTEM_COORDINATOR ||
-      actor.role === RoleId.SYSTEM_COORDINATOR
-    ) {
+    if (actor.role === RoleId.SYSTEM_COORDINATOR || actor.role === RoleId.MAINTENANCE_COORDINATOR) {
       const existingCoordinator =
         await this.actorService.getActorsByQueryParams({
           role: actor.role,
