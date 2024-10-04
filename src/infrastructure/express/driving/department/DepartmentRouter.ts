@@ -17,17 +17,21 @@ export class DepartmentRouter implements IRouterModule {
   }
 
   initRoutes(): void {
-    this.departmentRouter.post("/", schemaValidator(createDepartmentSchema) , async (req, res) => {
-      ResponseModel.manageResponse(this.departmentUseCase.createDepartment(req.body), res, HttpStatusCode.CREATED, Message.DEPARTMENT_CREATED_SUCCESSFULLY);
+    this.departmentRouter.post("/", schemaValidator(createDepartmentSchema), async (req, res) => {
+      await ResponseModel.manageResponse(this.departmentUseCase.createDepartment(req.body), res, HttpStatusCode.CREATED, Message.DEPARTMENT_CREATED_SUCCESSFULLY);
     });
 
     this.departmentRouter.get("/", async (req, res) => {
-      ResponseModel.manageResponse(this.departmentUseCase.getDepartments(), res, HttpStatusCode.OK, Message.DEPARTMENTS_OBTAINED_SUCCESSFULLY);
+      await ResponseModel.manageResponse(this.departmentUseCase.getDepartments(), res, HttpStatusCode.OK, Message.DEPARTMENTS_OBTAINED_SUCCESSFULLY);
     });
 
     this.departmentRouter.patch("/:id", schemaValidator(updateActorSchema), async (req, res) => {
-      ResponseModel.manageResponse(this.departmentUseCase.updateDepartment(Number(req.params.id), req.body), res, HttpStatusCode.OK, Message.DEPARTMENT_UPDATED_SUCCESSFULLY);
-    }); 
+      await ResponseModel.manageResponse(this.departmentUseCase.updateDepartment(Number(req.params.id), req.body), res, HttpStatusCode.OK, Message.DEPARTMENT_UPDATED_SUCCESSFULLY);
+    });
+
+    this.departmentRouter.delete("/:id", async (req, res) => {
+      await ResponseModel.manageResponse(this.departmentUseCase.deleteDepartment(Number(req.params.id)), res, HttpStatusCode.OK, Message.DEPARTMENT_DELETED_SUCCESSFULLY);
+    })
   }
   
   getRouter(): Router {

@@ -22,7 +22,15 @@ export class DepartmentUseCase implements IDepartmentUseCase {
 
   async updateDepartment(id: number, department: IDepartment): Promise<void> {
     try {
-      await this.updateDepartment(id, department);
+      await this.departmentService.updateDepartment(id, department);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async deleteDepartment(id: number): Promise<void> {
+    try {
+      await this.departmentService.deleteDepartment(id);
     } catch (error) {
       throw error;
     }
