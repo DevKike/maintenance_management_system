@@ -8,4 +8,8 @@ export class DepartmentService implements IDepartmentService {
   async createDepartment(department: IDepartment): Promise<void> {
     await this.departmentRepository.create(department);
   }
+
+  async getDepartments(): Promise<IDepartment[]> {
+    return await this.departmentRepository.get();
+  }
 }

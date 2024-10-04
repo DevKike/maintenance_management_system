@@ -17,6 +17,10 @@ export class DepartmentRouter implements IRouterModule {
     this.departmentRouter.post("/", async (req, res) => {
       ResponseModel.manageResponse(this.departmentUseCase.createDepartment(req.body), res, HttpStatusCode.CREATED, Message.DEPARTMENT_CREATED_SUCCESSFULLY);
     });
+
+    this.departmentRouter.get("/", async (req, res) => {
+      ResponseModel.manageResponse(this.departmentUseCase.getDepartments(), res, HttpStatusCode.OK, Message.DEPARTMENTS_OBTAINED_SUCCESSFULLY);
+    })
   }
   getRouter(): Router {
     return this.departmentRouter;
