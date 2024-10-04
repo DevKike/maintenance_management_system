@@ -10,9 +10,9 @@ export class DepartmentRepository implements IDepartmentRepository {
     this.departmentRepository = this.dataSource.getRepository(Department);
   }
 
-  async create(department: IDepartment): Promise<IDepartment> {
+  async create(department: IDepartment): Promise<void> {
     try {
-      return await this.departmentRepository.save(department);
+      await this.departmentRepository.save(department);
     } catch (error) {
       throw error;
     }
