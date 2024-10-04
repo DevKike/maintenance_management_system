@@ -12,6 +12,10 @@ import { ActorService } from "../services/actor/ActorService";
 import { ActorUseCase } from "../../application/usecases/actor/ActorUseCase";
 import { ActorRouter } from "./driving/actor/ActorRouter";
 import cors from "cors";
+import { DepartmentRouter } from "./driving/department/DepartmentRouter";
+import { DepartmentUseCase } from "../../application/usecases/department/DepartmentUseCase";
+import { DepartmentService } from "../services/department/DepartmentService";
+import { DepartmentRepository } from "../repositories/department/DepartmentRepository";
 
 export class Application {
   public app: App;
@@ -40,8 +44,13 @@ export class Application {
     const actorService = new ActorService(actorRepository);
     const actorUseCase = new ActorUseCase(actorService, roleService);
     const actorRouter = new ActorRouter(actorUseCase);
+    
+    const departmentRepository = new DepartmentRepository(AppDataSource);
+    const departmentService = new DepartmentService(departmentRepository);
+    const departmentUseCase = new DepartmentUseCase(departmentService);
+    const departmentRouter = new DepartmentRouter(departmentUseCase);
 
-    this.routerManager = new RouterManager(this.app, roleRouter, actorRouter);
+    this.routerManager = new RouterManager(this.app, roleRouter, actorRouter, departmentRouter);
     this.routerManager.manageRoutes();
   }
 

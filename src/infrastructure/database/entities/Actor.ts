@@ -39,10 +39,10 @@ export class Actor implements IActor {
 
   @ManyToOne(() => Role, (role) => role.actors)
   @JoinColumn({ name: "role_id" })
-  role: Role;
+  role: Role["id"];
 
   @ManyToOne(() => Department, (department) => department.actors)
   @JoinColumn({ name: "department_id" })
-  department: Department;
+  department: Department["id"];
 }
 

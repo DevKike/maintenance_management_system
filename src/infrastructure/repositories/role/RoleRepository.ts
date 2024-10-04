@@ -15,7 +15,7 @@ export class RoleRepository implements IRoleRepository {
       return await this.roleRepository.find();
     } catch (error) {
       throw error;
-    }
+    } 
   }
 
   async getOneById(id: number): Promise<IRole | null> {

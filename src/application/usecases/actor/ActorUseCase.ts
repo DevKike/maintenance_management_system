@@ -3,6 +3,7 @@ import { IActorService } from "../../../domain/entities/actor/IActorService";
 import { IActorUseCase } from "../../../domain/entities/actor/IActorUseCase";
 import { IRoleService } from "../../../domain/entities/role/IRoleService";
 import { Message } from "../../../domain/enums/message/Message";
+import { RoleId } from "../../../domain/enums/role/Role";
 import { AlreadyExistsException } from "../../../domain/exceptions/AlreadyExistsException";
 import { NotFoundException } from "../../../domain/exceptions/NotFoundException";
 
@@ -37,6 +38,17 @@ export class ActorUseCase implements IActorUseCase {
     
     if(!isActorRoleExisting) {
       throw new NotFoundException(Message.NOT_ROLES_FOUND);
+    }
+
+    if (actor.role === RoleId.SYSTEM_COORDINATOR || actor.role === RoleId.SYSTEM_COORDINATOR) {
+      const existingCoordinator = await this.actorService.getActorsByQueryParams({
+        role: actor.role,
+        department:  actor.department,
+      });
+
+      if (existingCoordinator.length > 0) {
+        throw new AlreadyExistsException(Message.COORDINATOR_ALREADY_EXISTS);
+      }
     }
 
     await this.actorService.createActor(actor);
