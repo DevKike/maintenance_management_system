@@ -4,7 +4,7 @@ import { IActorUseCase } from "../../../../domain/entities/actor/IActorUseCase";
 import { Router } from "express";
 import { Message } from "../../../../domain/enums/message/Message";
 import { schemaValidator } from "../../middlewares/schemaValidator";
-import { createActorSchema } from "../../../schemas/actor/actorSchema";
+import { createActorSchema, updateActorSchema } from "../../../schemas/actor/actorSchema";
 import { ResponseModel } from "../../response/ResponseModel";
 
 export class ActorRouter implements IRouterModule {
@@ -29,10 +29,13 @@ export class ActorRouter implements IRouterModule {
     this.actorRouter.get("/by", async (req, res) => {
       await ResponseModel.manageResponse(this.actorUseCase.getActorsByQueryParams(req.query), res, HttpStatusCode.OK, Message.ACTOR_OBTAINED_SUCCESSFULLY);
     })
-  }
 
+    this.actorRouter.patch("/:id", schemaValidator(updateActorSchema), async (req, res) => {
+      await ResponseModel.manageResponse(this.actorUseCase.updateActorById(Number(req.params.id), req.body), res, HttpStatusCode.OK, Message.ACTOR_UPDATED_SUCCESSFULLY);
+    }) 
+  }
+  
   getRouter(): Router {
     return this.actorRouter;
   }
-
 }

@@ -22,3 +22,12 @@ export const createActorSchema = Joi.object({
   role: roleId.required(),
   status: status.optional()
 });
+
+export const updateActorSchema =  Joi.object({
+  name: name,
+  last_name: last_name,
+  phone_number: phone_number,
+  email: email,
+  role: roleId,
+  status: status,
+})
