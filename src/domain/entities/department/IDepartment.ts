@@ -5,6 +5,6 @@ export interface IDepartment {
   name: string;
   description: string;
   phone_number: string;
-  coordinator: IActor["id"];
+  coordinator: IActor;
 }
 

@@ -1,5 +1,5 @@
 import { IDepartment } from "../../../domain/entities/department/IDepartment";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Actor } from "./Actor";
 
 @Entity()
@@ -16,8 +16,9 @@ export class Department implements IDepartment {
   @Column()
   phone_number: string;
 
-  @OneToMany(() => Actor, (actor) => actor.id)
-  coordinator: Actor["id"];
+  @ManyToOne(() => Actor)
+  @JoinColumn({ name: "coordinator_id" })
+  coordinator: Actor;
 
   @OneToMany(() => Actor, (actor) => actor.department)
   actors: Actor[];
