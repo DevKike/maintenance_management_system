@@ -18,7 +18,7 @@ export class Department implements IDepartment {
 
   @ManyToOne(() => Actor)
   @JoinColumn({ name: "coordinator_id" })
-  coordinator: Actor["id"];
+  coordinator_id: Actor;
 
   @OneToMany(() => Actor, (actor) => actor.department)
   actors: Actor[];

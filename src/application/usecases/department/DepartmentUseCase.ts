@@ -5,9 +5,9 @@ import { IDepartmentUseCase } from "../../../domain/entities/department/IDepartm
 export class DepartmentUseCase implements IDepartmentUseCase {
   constructor(private readonly departmentService: IDepartmentService) {}
 
-  async createDepartment(department: IDepartment): Promise<IDepartment> {
+  async createDepartment(department: IDepartment): Promise<void> {
     try {
-      return await this.departmentService.createDepartment(department);
+      await this.departmentService.createDepartment(department);
     } catch (error) {
       throw error;
     }
