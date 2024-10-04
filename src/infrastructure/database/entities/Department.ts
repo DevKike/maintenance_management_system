@@ -22,3 +22,4 @@ export class Department implements IDepartment {
   @OneToMany(() => Actor, (actor) => actor.department)
   actors: Actor[];
 }
+

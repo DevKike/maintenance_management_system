@@ -37,9 +37,11 @@ export class Actor implements IActor {
   @Column({ default: "active" })
   status: Status;
 
+  //@Column({ name: "role_id" })
   @ManyToOne(() => Role, (role) => role.actors)
   role: Role["id"];
 
   @ManyToOne(() => Department, (department) => department.actors)
   department: Department["id"];
 }
+

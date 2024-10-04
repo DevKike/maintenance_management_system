@@ -7,3 +7,4 @@ export interface IDepartment {
   phone_number: string;
   coordinator: IActor["id"];
 }
+

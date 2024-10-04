@@ -17,3 +17,4 @@ export interface IActor {
   role: IRole["id"];
   department: IDepartment["id"];
 }
+

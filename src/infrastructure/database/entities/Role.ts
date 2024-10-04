@@ -16,3 +16,4 @@ export class Role implements IRole {
   @OneToMany(() => Actor, (actor) => actor.role)
   actors: Actor[];
 }
+
