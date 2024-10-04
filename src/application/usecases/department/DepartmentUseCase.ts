@@ -19,4 +19,12 @@ export class DepartmentUseCase implements IDepartmentUseCase {
       throw error;
     }
   }
+
+  async updateDepartment(id: number, department: IDepartment): Promise<void> {
+    try {
+      await this.updateDepartment(id, department);
+    } catch (error) {
+      throw error;
+    }
+  }
 }

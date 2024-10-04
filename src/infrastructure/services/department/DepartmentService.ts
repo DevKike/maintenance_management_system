@@ -20,4 +20,12 @@ export class DepartmentService implements IDepartmentService {
       throw error;
     }
   }
+
+  async updateDepartment(id: number, department: IDepartment): Promise<void> {
+    try {
+      await this.updateDepartment(id, department);
+    } catch (error) {
+      throw error;
+    }
+  }
 }

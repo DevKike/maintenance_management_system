@@ -27,4 +27,20 @@ export class DepartmentRepository implements IDepartmentRepository {
       throw error;
     }
   }
+
+  async update(id: number, department: IDepartment): Promise<void> {
+    try {
+      await this.departmentRepository.update(id, department);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async delete(id: number): Promise<void> {
+    try{
+      await this.departmentRepository.delete(id);
+    } catch (error) {
+      throw error;
+    }
+  }
 }

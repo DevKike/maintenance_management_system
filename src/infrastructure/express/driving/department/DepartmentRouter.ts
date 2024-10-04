@@ -4,6 +4,9 @@ import { ResponseModel } from "../../response/ResponseModel";
 import { HttpStatusCode } from "../../../../domain/enums/httpStatusCode/HttpStatusCode";
 import { Message } from "../../../../domain/enums/message/Message";
 import { IDepartmentUseCase } from "../../../../domain/entities/department/IDepartmentUseCase";
+import { schemaValidator } from "../../middlewares/schemaValidator";
+import { createDepartmentSchema } from "../../../schemas/department/departmentSchema";
+import { updateActorSchema } from "../../../schemas/actor/actorSchema";
 
 export class DepartmentRouter implements IRouterModule {
   private readonly departmentRouter: Router;
@@ -14,14 +17,19 @@ export class DepartmentRouter implements IRouterModule {
   }
 
   initRoutes(): void {
-    this.departmentRouter.post("/", async (req, res) => {
+    this.departmentRouter.post("/", schemaValidator(createDepartmentSchema) , async (req, res) => {
       ResponseModel.manageResponse(this.departmentUseCase.createDepartment(req.body), res, HttpStatusCode.CREATED, Message.DEPARTMENT_CREATED_SUCCESSFULLY);
     });
 
     this.departmentRouter.get("/", async (req, res) => {
       ResponseModel.manageResponse(this.departmentUseCase.getDepartments(), res, HttpStatusCode.OK, Message.DEPARTMENTS_OBTAINED_SUCCESSFULLY);
-    })
+    });
+
+    this.departmentRouter.patch("/:id", schemaValidator(updateActorSchema), async (req, res) => {
+      ResponseModel.manageResponse(this.departmentUseCase.updateDepartment(Number(req.params.id), req.body), res, HttpStatusCode.OK, Message.DEPARTMENT_UPDATED_SUCCESSFULLY);
+    }); 
   }
+  
   getRouter(): Router {
     return this.departmentRouter;
   }
