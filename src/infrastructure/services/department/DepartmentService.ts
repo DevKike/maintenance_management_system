@@ -6,10 +6,18 @@ export class DepartmentService implements IDepartmentService {
   constructor(private readonly departmentRepository: DepartmentRepository) {}
 
   async createDepartment(department: IDepartment): Promise<void> {
-    await this.departmentRepository.create(department);
+    try {
+      await this.departmentRepository.create(department);
+    } catch (error) {
+      throw error;
+    }
   }
 
   async getDepartments(): Promise<IDepartment[]> {
-    return await this.departmentRepository.get();
+    try {
+      return await this.departmentRepository.get();
+    } catch (error) {
+      throw error;
+    }
   }
 }
