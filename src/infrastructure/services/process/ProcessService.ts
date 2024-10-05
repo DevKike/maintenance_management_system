@@ -12,4 +12,12 @@ export class ProcessService implements IProcessService {
       throw error;
     }
   }
+
+  async getAllProcesses(): Promise<IProcess[]> {
+    try {
+      return await this.processRepository.getAll();
+    } catch (error) {
+      throw error;
+    }
+  }
 }

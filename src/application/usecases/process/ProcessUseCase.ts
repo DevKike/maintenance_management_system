@@ -12,4 +12,12 @@ export class ProcessUseCase implements IProcessUseCase {
       throw error;
     }
   }
+
+  async getAllProcesses(): Promise<IProcess[]> {
+    try {
+      return await this.processService.getAllProcesses();
+    } catch (error) {
+      throw error;
+    }
+  }
 }

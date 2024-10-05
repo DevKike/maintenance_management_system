@@ -17,6 +17,10 @@ export class ProcessRouter implements IRouterModule {
     this.processRouter.post("/", async (req, res) => {
       ResponseModel.manageResponse(this.processUseCase.createProcess(req.body), res, HttpStatusCode.CREATED, Message.PROCESS_CREATED_SUCCESSFULLY);
     });
+
+    this.processRouter.get("/", async (req, res) => {
+      ResponseModel.manageResponse(this.processUseCase.getAllProcesses(), res, HttpStatusCode.OK, Message.PROCESSES_OBTAINED_SUCCESSFULLY);
+    });
   }
 
   getRouter(): Router {
