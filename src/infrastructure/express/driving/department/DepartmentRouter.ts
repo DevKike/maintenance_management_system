@@ -25,8 +25,7 @@ export class DepartmentRouter implements IRouterModule {
     });
 
     this.departmentRouter.patch("/:id", schemaValidator(updateDepartmentSchema), async (req, res) => {
-      console.log(req.body)
-      await ResponseModel.manageResponse(this.departmentUseCase.updateDepartment(Number(req.params.id), req.body), res, HttpStatusCode.OK, Message.DEPARTMENT_UPDATED_SUCCESSFULLY);
+       await ResponseModel.manageResponse(this.departmentUseCase.updateDepartment(Number(req.params.id), req.body), res, HttpStatusCode.OK, Message.DEPARTMENT_UPDATED_SUCCESSFULLY);
     });
 
     this.departmentRouter.delete("/:id", async (req, res) => {

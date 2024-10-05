@@ -23,7 +23,7 @@ export class DepartmentService implements IDepartmentService {
 
   async updateDepartment(id: number, department: IDepartment): Promise<void> {
     try {
-      await this.updateDepartment(id, department);
+      await this.departmentRepository.update(id, department);
     } catch (error) {
       throw error;
     }
@@ -31,7 +31,7 @@ export class DepartmentService implements IDepartmentService {
 
   async deleteDepartment(id: number): Promise<void> {
     try {
-      await this.deleteDepartment(id);
+      await this.departmentRepository.delete(id);
     } catch (error) {
       throw error;
     }
