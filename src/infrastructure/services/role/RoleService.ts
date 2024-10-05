@@ -14,3 +14,4 @@ export class RoleService implements IRoleService {
     return await this.roleRepository.getOneById(id);
   }
 }
+ 

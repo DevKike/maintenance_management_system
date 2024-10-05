@@ -13,7 +13,7 @@ export class ResponseModel {
   ): Promise<void> {
     try {
       const result = await promise;
-      res.status(statusCode).json({ message, data: result });
+      res.status(statusCode).json({ message: message, data: result });
     } catch (error) {
       if (error instanceof NotFoundException) {
         res.status(HttpStatusCode.NOT_FOUND).json({ error: error.message });

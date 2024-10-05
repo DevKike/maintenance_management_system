@@ -1,9 +1,9 @@
 import { IActor } from "../actor/IActor";
 
-export interface IRole {
+export interface IDepartment {
   id: number;
   name: string;
   description: string;
-  actors: IActor[];
+  phone_number: string;
+  coordinator_id: IActor;
 }
-

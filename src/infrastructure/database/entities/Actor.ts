@@ -1,8 +1,9 @@
-import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { IActor } from "../../../domain/entities/actor/IActor";
 import { Status } from "../../../domain/enums/actor/Status";
 import { DocumentType } from "../../../domain/enums/actor/DocumentType";
 import { Role } from "./Role";
+import { Department } from "./Department";
 
 @Entity()
 export class Actor implements IActor {
@@ -37,5 +38,11 @@ export class Actor implements IActor {
   status: Status;
 
   @ManyToOne(() => Role, (role) => role.actors)
+  @JoinColumn({ name: "role_id" })
   role: Role["id"];
+
+  @ManyToOne(() => Department, (department) => department.actors)
+  @JoinColumn({ name: "department_id" })
+  department: Department["id"];
 }
+

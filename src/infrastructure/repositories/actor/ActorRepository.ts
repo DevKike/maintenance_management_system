@@ -18,10 +18,10 @@ export class ActorRepository implements IActorRepository {
     }
   }
 
-  async getAll(limit: number, skip: number ): Promise<IActor[]> {
+  async getAll(limit: number, skip: number): Promise<IActor[]> {
     try {
       return await this.actorRepository.find({
-        take: limit, 
+        take: limit,
         skip,
         relations: ["role"],
       });
@@ -36,6 +36,15 @@ export class ActorRepository implements IActorRepository {
         where: params,
         relations: ["role"],
       });
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async updateById(id: number, actor: IActor): Promise<void> {
+    try {
+      const data = { id, actor };
+      await this.actorRepository.update(id, actor);
     } catch (error) {
       throw error;
     }

@@ -22,10 +22,17 @@ export class ActorService implements IActorService {
     }
   }
 
-  
   async getActorsByQueryParams(params: Partial<IActor>): Promise<IActor[]> {
     try {
       return await this.actorRepository.getByQueryParams(params);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async updateActorById(id: number, actor: IActor): Promise<void> {
+    try {
+      await this.actorRepository.updateById(id, actor);
     } catch (error) {
       throw error;
     }
