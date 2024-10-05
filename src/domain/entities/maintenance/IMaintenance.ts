@@ -1,5 +1,5 @@
-import { Status } from "../../enums/maintenance/Status";
-import { Type } from "../../enums/maintenance/Type";
+import { MaintenanceStatus } from "../../enums/maintenance/MaintenanceStatus";
+import { MaintenanceType } from "../../enums/maintenance/MaintenanceType";
 import { IDepartment } from "../department/IDepartment";
 
 export interface IMaintenance {
@@ -8,7 +8,7 @@ export interface IMaintenance {
   description: string;
   created_at: Date;
   updated_at: Date;
-  status?: Status;
-  type: Type;
+  status?: MaintenanceStatus;
+  type: MaintenanceType;
   department: IDepartment;
 }

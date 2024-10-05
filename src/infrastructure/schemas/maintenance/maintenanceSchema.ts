@@ -1,27 +1,27 @@
 import Joi from "joi";
-import { Status } from "../../../domain/enums/maintenance/Status";
-import { Type } from "../../../domain/enums/maintenance/Type";
+import { MaintenanceStatus } from "../../../domain/enums/maintenance/MaintenanceStatus";
+import { MaintenanceType } from "../../../domain/enums/maintenance/MaintenanceType";
 
 const name = Joi.string();
 const description = Joi.string();
 const status = Joi.string()
   .valid(
-    Status.APPROVED,
-    Status.ASSIGNED,
-    Status.CANCELED,
-    Status.CLOSED,
-    Status.COMPLETED,
-    Status.COMPLETED,
-    Status.IN_PROGRESS,
-    Status.PAUSED,
-    Status.REJECTED,
-    Status.REQUESTED,
-    Status.UNDER_EVALUATION
+    MaintenanceStatus.APPROVED,
+    MaintenanceStatus.ASSIGNED,
+    MaintenanceStatus.CANCELED,
+    MaintenanceStatus.CLOSED,
+    MaintenanceStatus.COMPLETED,
+    MaintenanceStatus.COMPLETED,
+    MaintenanceStatus.IN_PROGRESS,
+    MaintenanceStatus.PAUSED,
+    MaintenanceStatus.REJECTED,
+    MaintenanceStatus.REQUESTED,
+    MaintenanceStatus.UNDER_EVALUATION
   )
   .empty("")
   .default(null);
 
-const type = Joi.string().valid(Type.CORRECTIVE, Type.PREVENTIVE);
+const type = Joi.string().valid(MaintenanceType.CORRECTIVE, MaintenanceType.PREVENTIVE);
 const department_id = Joi.number();
 
 export const createMaintenanceSchema = Joi.object({

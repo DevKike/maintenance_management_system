@@ -1,4 +1,4 @@
-export enum Status {
+export enum MaintenanceStatus {
   REQUESTED = "requested",
   UNDER_EVALUATION = "under_evaluation",
   APPROVED = "approved",

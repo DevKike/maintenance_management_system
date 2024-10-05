@@ -1,7 +1,7 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { IMaintenance } from "../../../domain/entities/maintenance/IMaintenance";
-import { Status } from "../../../domain/enums/maintenance/Status";
-import { Type } from "../../../domain/enums/maintenance/Type";
+import { MaintenanceStatus } from "../../../domain/enums/maintenance/MaintenanceStatus";
+import { MaintenanceType } from "../../../domain/enums/maintenance/MaintenanceType";
 import { Department } from "./Department";
 
 @Entity()
@@ -22,10 +22,10 @@ export class Maintenance implements IMaintenance {
   updated_at: Date;
 
   @Column()
-  type: Type;
+  type: MaintenanceType;
 
-  @Column({ default: Status.REQUESTED })
-  status: Status;
+  @Column({ default: MaintenanceStatus.REQUESTED })
+  status?: MaintenanceStatus;
 
   @ManyToOne(() => Department, (department) => department.maintenances)
   @JoinColumn({ name: "department_id" })
