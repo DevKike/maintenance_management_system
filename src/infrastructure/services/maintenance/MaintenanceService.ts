@@ -31,4 +31,12 @@ export class MaintenanceService implements IMaintenanceService {
       throw error;
     }
   }
+
+  async updateMaintenanceById(id: number, maintenance: IMaintenance): Promise<void> {
+    try {
+      await this.maintenanceRepository.updateById(id, maintenance);
+    } catch (error) {
+      throw error;
+    }
+  }
 }

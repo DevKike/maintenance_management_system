@@ -4,7 +4,7 @@ import { ResponseModel } from "../../response/ResponseModel";
 import { HttpStatusCode } from "../../../../domain/enums/httpStatusCode/HttpStatusCode";
 import { Message } from "../../../../domain/enums/message/Message";
 import { schemaValidator } from "../../middlewares/schemaValidator";
-import { createMaintenanceSchema } from "../../../schemas/maintenance/maintenanceSchema";
+import { createMaintenanceSchema, updateMaintenanceSchema } from "../../../schemas/maintenance/maintenanceSchema";
 import { IMaintenanceUseCase } from "../../../../domain/entities/maintenance/IMaintenanceUseCase";
 
 export class MaintenanceRouter implements IRouterModule {
@@ -26,7 +26,11 @@ export class MaintenanceRouter implements IRouterModule {
 
     this.maintenanceRouter.get("/:id", async (req, res) => {
       await ResponseModel.manageResponse(this.maintenanceUseCase.getMaintenanceById(Number(req.params.id)), res, HttpStatusCode.OK, Message.MAINTENANCE_OBTAINED_SUCCESSFULLY);
-    })
+    });
+
+    this.maintenanceRouter.patch("/:id", schemaValidator(updateMaintenanceSchema), async (req, res) => {
+      await ResponseModel.manageResponse(this.maintenanceUseCase.updateMaintenanceById(Number(req.params.id), req.body), res, HttpStatusCode.OK, Message.MAINTENANCE_UPDATED_SUCCESSFULLY);
+    });
   }
 
   getRouter(): Router {

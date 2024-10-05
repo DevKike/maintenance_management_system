@@ -32,8 +32,16 @@ export class MaintenanceRepository implements IMaintenanceRepository {
     try {
       return await this.maintenanceRepository.findOne({
         where: { id: id },
-        relations: ["department"]
+        relations: ["department"],
       });
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async updateById(id: number, maintenance: IMaintenance): Promise<void> {
+    try {
+      await this.maintenanceRepository.update(id, maintenance);
     } catch (error) {
       throw error;
     }

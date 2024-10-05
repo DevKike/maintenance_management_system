@@ -28,4 +28,12 @@ export class MaintenanceUseCase implements IMaintenanceUseCase {
       throw error;
     }
   }
+
+  async updateMaintenanceById(id: number, maintenance: IMaintenance): Promise<void> {
+    try {
+      await this.maintenanceService.updateMaintenanceById(id, maintenance);
+    } catch (error) {
+      throw error;
+    }
+  }
 }

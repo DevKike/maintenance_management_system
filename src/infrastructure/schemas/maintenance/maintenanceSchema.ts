@@ -31,3 +31,11 @@ export const createMaintenanceSchema = Joi.object({
   type: type.required(),
   department: department_id.required(),
 });
+
+export const updateMaintenanceSchema = Joi.object({
+  name: name,
+  description: description,
+  status: status,
+  type: type,
+  department: department_id,
+});
