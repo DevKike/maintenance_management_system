@@ -7,5 +7,5 @@ export interface IDepartment {
   description: string;
   phone_number: string;
   coordinator: IActor;
-  status: DepartmentStatus;
+  status?: DepartmentStatus;
 }

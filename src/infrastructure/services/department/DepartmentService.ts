@@ -7,6 +7,9 @@ export class DepartmentService implements IDepartmentService {
 
   async createDepartment(department: IDepartment): Promise<void> {
     try {
+      if (!department.status) {
+        delete department.status;
+      }
       await this.departmentRepository.create(department);
     } catch (error) {
       throw error;
