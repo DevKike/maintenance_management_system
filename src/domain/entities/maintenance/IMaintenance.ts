@@ -8,7 +8,7 @@ export interface IMaintenance {
   description: string;
   created_at: Date;
   updated_at: Date;
-  status: Status;
+  status?: Status;
   type: Type;
   department: IDepartment;
 }

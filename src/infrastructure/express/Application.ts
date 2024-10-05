@@ -16,6 +16,10 @@ import { DepartmentRouter } from "./driving/department/DepartmentRouter";
 import { DepartmentUseCase } from "../../application/usecases/department/DepartmentUseCase";
 import { DepartmentService } from "../services/department/DepartmentService";
 import { DepartmentRepository } from "../repositories/department/DepartmentRepository";
+import { MaintenanceRouter } from "./driving/maintenance/MaintenanceRouter";
+import { MaintenanceUseCase } from "../../application/usecases/maintenance/MaintenanceUseCase";
+import { MaintenanceService } from "../services/maintenance/MaintenanceService";
+import { MaintenanceRepository } from "../repositories/maintenance/MaintenanceRepository";
 
 export class Application {
   public app: App;
@@ -50,7 +54,12 @@ export class Application {
     const departmentUseCase = new DepartmentUseCase(departmentService);
     const departmentRouter = new DepartmentRouter(departmentUseCase);
 
-    this.routerManager = new RouterManager(this.app, roleRouter, actorRouter, departmentRouter);
+    const maintenanceRepository = new MaintenanceRepository(AppDataSource)
+    const maintenanceService = new MaintenanceService(maintenanceRepository)
+    const maintenanceUseCase = new MaintenanceUseCase(maintenanceService);
+    const maintenanceRouter = new MaintenanceRouter(maintenanceUseCase);
+
+    this.routerManager = new RouterManager(this.app, roleRouter, actorRouter, departmentRouter, maintenanceRouter);
     this.routerManager.manageRoutes();
   }
 
