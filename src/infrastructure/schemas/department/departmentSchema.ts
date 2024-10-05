@@ -9,12 +9,12 @@ export const createDepartmentSchema = Joi.object({
   name: name.required(),
   description: description.required(),
   phone_number: phone_number.required(),
-  coordinator_id: coordinator_id.required(),
+  coordinator: coordinator_id.required(),
 });
 
 export const updateDepartmentSchema = Joi.object({
   name: name,
   description: description,
   phone_number: phone_number,
-  coordinator_id: coordinator_id
+  coordinator: coordinator_id
 });

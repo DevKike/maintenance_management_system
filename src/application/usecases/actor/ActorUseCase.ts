@@ -48,14 +48,14 @@ export class ActorUseCase implements IActorUseCase {
       }
     }
 
-    const actorRoleId = actor.role;
+    const actorRoleId = actor.role.id;
     const isActorRoleExisting = await this.roleService.getRoleById(actorRoleId);
 
     if (!isActorRoleExisting) {
       throw new NotFoundException(Message.NOT_ROLES_FOUND);
     }
 
-    if (actor.role === RoleId.SYSTEM_COORDINATOR || actor.role === RoleId.MAINTENANCE_COORDINATOR) {
+    if (actor.role.id === RoleId.SYSTEM_COORDINATOR || actor.role.id === RoleId.MAINTENANCE_COORDINATOR) {
       const existingCoordinator =
         await this.actorService.getActorsByQueryParams({
           role: actor.role,

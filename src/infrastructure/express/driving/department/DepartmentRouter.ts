@@ -16,7 +16,7 @@ export class DepartmentRouter implements IRouterModule {
   }
 
   initRoutes(): void {
-    this.departmentRouter.post("/", schemaValidator(createDepartmentSchema), async (req, res) => {
+    this.departmentRouter.post("/", /* schemaValidator(createDepartmentSchema), */ async (req, res) => {
       await ResponseModel.manageResponse(this.departmentUseCase.createDepartment(req.body), res, HttpStatusCode.CREATED, Message.DEPARTMENT_CREATED_SUCCESSFULLY);
     });
 

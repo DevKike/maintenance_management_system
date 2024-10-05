@@ -12,6 +12,7 @@ export class DepartmentUseCase implements IDepartmentUseCase {
       throw error;
     }
   }
+  
   async getDepartments(): Promise<IDepartment[]> {
     try {
       return await this.departmentService.getDepartments();
