@@ -35,12 +35,4 @@ export class DepartmentRepository implements IDepartmentRepository {
       throw error;
     }
   }
-
-  async delete(id: number): Promise<void> {
-    try{
-      await this.departmentRepository.delete(id);
-    } catch (error) {
-      throw error;
-    }
-  }
 }

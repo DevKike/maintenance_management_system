@@ -28,12 +28,4 @@ export class DepartmentUseCase implements IDepartmentUseCase {
       throw error;
     }
   }
-
-  async deleteDepartment(id: number): Promise<void> {
-    try {
-      await this.departmentService.deleteDepartment(id);
-    } catch (error) {
-      throw error;
-    }
-  }
 }
