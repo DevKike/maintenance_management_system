@@ -1,8 +1,18 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from "typeorm";
 import { IMaintenance } from "../../../domain/entities/maintenance/IMaintenance";
 import { MaintenanceStatus } from "../../../domain/enums/maintenance/MaintenanceStatus";
 import { MaintenanceType } from "../../../domain/enums/maintenance/MaintenanceType";
 import { Department } from "./Department";
+import { Process } from "./Process";
 
 @Entity()
 export class Maintenance implements IMaintenance {
@@ -17,7 +27,7 @@ export class Maintenance implements IMaintenance {
 
   @CreateDateColumn({ name: "created_at" })
   created_at: Date;
-  
+
   @UpdateDateColumn({ name: "updated_at" })
   updated_at: Date;
 
@@ -30,4 +40,7 @@ export class Maintenance implements IMaintenance {
   @ManyToOne(() => Department, (department) => department.maintenances)
   @JoinColumn({ name: "department_id" })
   department: Department;
+
+  @OneToMany(() => Process, (process) => process.maintenance)
+  processes: Process[];
 }

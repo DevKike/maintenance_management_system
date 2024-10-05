@@ -1,8 +1,18 @@
 import { IDepartment } from "../../../domain/entities/department/IDepartment";
-import { Column, CreateDateColumn, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from "typeorm";
 import { Actor } from "./Actor";
 import { Maintenance } from "./Maintenance";
 import { DepartmentStatus } from "../../../domain/enums/department/DepartmentStatus";
+import { Process } from "./Process";
 
 @Entity()
 export class Department implements IDepartment {
@@ -20,7 +30,7 @@ export class Department implements IDepartment {
 
   @CreateDateColumn({ name: "created_at" })
   created_at: Date;
-  
+
   @UpdateDateColumn({ name: "updated_at" })
   updated_at: Date;
 
@@ -37,4 +47,3 @@ export class Department implements IDepartment {
   @OneToMany(() => Maintenance, (maintenance) => maintenance.department)
   maintenances: Maintenance[];
 }
-
