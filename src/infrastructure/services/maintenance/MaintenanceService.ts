@@ -1,9 +1,9 @@
 import { IMaintenance } from "../../../domain/entities/maintenance/IMaintenance";
+import { IMaintenanceRepository } from "../../../domain/entities/maintenance/IMaintenanceRepository";
 import { IMaintenanceService } from "../../../domain/entities/maintenance/IMaintenanceService";
-import { MaintenanceRepository } from "../../repositories/maintenance/MaintenanceRepository";
 
 export class MaintenanceService implements IMaintenanceService {
-  constructor(private readonly maintenanceRepository: MaintenanceRepository) {}
+  constructor(private readonly maintenanceRepository: IMaintenanceRepository) {}
 
   async createMaintenance(maintenance: IMaintenance): Promise<void> {
     try {
@@ -19,6 +19,14 @@ export class MaintenanceService implements IMaintenanceService {
   async getAllMaintenances(): Promise<IMaintenance[]> {
     try {
       return await this.maintenanceRepository.getAll();
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getMaintenanceById(id: number): Promise<IMaintenance | null> {
+    try {
+      return await this.maintenanceRepository.getOneById(id);
     } catch (error) {
       throw error;
     }

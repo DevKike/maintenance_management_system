@@ -1,9 +1,9 @@
 import { IMaintenance } from "../../../domain/entities/maintenance/IMaintenance";
+import { IMaintenanceService } from "../../../domain/entities/maintenance/IMaintenanceService";
 import { IMaintenanceUseCase } from "../../../domain/entities/maintenance/IMaintenanceUseCase";
-import { MaintenanceService } from "../../../infrastructure/services/maintenance/MaintenanceService";
 
 export class MaintenanceUseCase implements IMaintenanceUseCase {
-  constructor(private readonly maintenanceService: MaintenanceService) {}
+  constructor(private readonly maintenanceService: IMaintenanceService) {}
 
   async createMaintenance(maintenance: IMaintenance): Promise<void> {
     try {
@@ -16,6 +16,14 @@ export class MaintenanceUseCase implements IMaintenanceUseCase {
   async getAllMaintenances(): Promise<IMaintenance[]> {
     try {
       return await this.maintenanceService.getAllMaintenances();
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getMaintenanceById(id: number): Promise<IMaintenance | null> {
+    try {
+      return await this.maintenanceService.getMaintenanceById(id);
     } catch (error) {
       throw error;
     }

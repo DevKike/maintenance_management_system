@@ -1,16 +1,16 @@
 import { Router } from "express";
 import { IRouterModule } from "../../interfaces/IRouterModule";
-import { MaintenanceUseCase } from "../../../../application/usecases/maintenance/MaintenanceUseCase";
 import { ResponseModel } from "../../response/ResponseModel";
 import { HttpStatusCode } from "../../../../domain/enums/httpStatusCode/HttpStatusCode";
 import { Message } from "../../../../domain/enums/message/Message";
 import { schemaValidator } from "../../middlewares/schemaValidator";
 import { createMaintenanceSchema } from "../../../schemas/maintenance/maintenanceSchema";
+import { IMaintenanceUseCase } from "../../../../domain/entities/maintenance/IMaintenanceUseCase";
 
 export class MaintenanceRouter implements IRouterModule {
   private readonly maintenanceRouter: Router;
 
-  constructor(private readonly maintenanceUseCase: MaintenanceUseCase) {
+  constructor(private readonly maintenanceUseCase: IMaintenanceUseCase) {
     this.maintenanceRouter = Router();
     this.initRoutes();
   }
@@ -22,6 +22,10 @@ export class MaintenanceRouter implements IRouterModule {
 
     this.maintenanceRouter.get("/", async (req, res) => {
       await ResponseModel.manageResponse(this.maintenanceUseCase.getAllMaintenances(), res, HttpStatusCode.OK, Message.MAINTENANCES_OBTAINED_SUCCESSFULLY)
+    });
+
+    this.maintenanceRouter.get("/:id", async (req, res) => {
+      await ResponseModel.manageResponse(this.maintenanceUseCase.getMaintenanceById(Number(req.params.id)), res, HttpStatusCode.OK, Message.MAINTENANCE_OBTAINED_SUCCESSFULLY);
     })
   }
 

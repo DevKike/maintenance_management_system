@@ -27,4 +27,15 @@ export class MaintenanceRepository implements IMaintenanceRepository {
       throw error;
     }
   }
+
+  async getOneById(id: number): Promise<IMaintenance | null> {
+    try {
+      return await this.maintenanceRepository.findOne({
+        where: { id: id },
+        relations: ["department"]
+      });
+    } catch (error) {
+      throw error;
+    }
+  }
 }
