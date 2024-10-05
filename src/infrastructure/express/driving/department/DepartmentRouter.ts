@@ -5,8 +5,7 @@ import { HttpStatusCode } from "../../../../domain/enums/httpStatusCode/HttpStat
 import { Message } from "../../../../domain/enums/message/Message";
 import { IDepartmentUseCase } from "../../../../domain/entities/department/IDepartmentUseCase";
 import { schemaValidator } from "../../middlewares/schemaValidator";
-import { createDepartmentSchema } from "../../../schemas/department/departmentSchema";
-import { updateActorSchema } from "../../../schemas/actor/actorSchema";
+import { createDepartmentSchema, updateDepartmentSchema } from "../../../schemas/department/departmentSchema";
 
 export class DepartmentRouter implements IRouterModule {
   private readonly departmentRouter: Router;
@@ -25,7 +24,8 @@ export class DepartmentRouter implements IRouterModule {
       await ResponseModel.manageResponse(this.departmentUseCase.getDepartments(), res, HttpStatusCode.OK, Message.DEPARTMENTS_OBTAINED_SUCCESSFULLY);
     });
 
-    this.departmentRouter.patch("/:id", schemaValidator(updateActorSchema), async (req, res) => {
+    this.departmentRouter.patch("/:id", schemaValidator(updateDepartmentSchema), async (req, res) => {
+      console.log(req.body)
       await ResponseModel.manageResponse(this.departmentUseCase.updateDepartment(Number(req.params.id), req.body), res, HttpStatusCode.OK, Message.DEPARTMENT_UPDATED_SUCCESSFULLY);
     });
 
