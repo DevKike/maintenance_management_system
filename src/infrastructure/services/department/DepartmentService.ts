@@ -1,12 +1,15 @@
 import { IDepartment } from "../../../domain/entities/department/IDepartment";
+import { IDepartmentRepository } from "../../../domain/entities/department/IDepartmentRepository";
 import { IDepartmentService } from "../../../domain/entities/department/IDepartmentService";
-import { DepartmentRepository } from "../../repositories/department/DepartmentRepository";
 
 export class DepartmentService implements IDepartmentService {
-  constructor(private readonly departmentRepository: DepartmentRepository) {}
+  constructor(private readonly departmentRepository: IDepartmentRepository) {}
 
   async createDepartment(department: IDepartment): Promise<void> {
     try {
+      if (!department.status) {
+        delete department.status;
+      }
       await this.departmentRepository.create(department);
     } catch (error) {
       throw error;
@@ -15,7 +18,7 @@ export class DepartmentService implements IDepartmentService {
 
   async getDepartments(): Promise<IDepartment[]> {
     try {
-      return await this.departmentRepository.get();
+      return await this.departmentRepository.getAll();
     } catch (error) {
       throw error;
     }

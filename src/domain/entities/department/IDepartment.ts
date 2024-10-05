@@ -1,3 +1,4 @@
+import { DepartmentStatus } from "../../enums/department/DepartmentStatus";
 import { IActor } from "../actor/IActor";
 
 export interface IDepartment {
@@ -5,5 +6,6 @@ export interface IDepartment {
   name: string;
   description: string;
   phone_number: string;
-  coordinator_id: IActor;
+  coordinator: IActor;
+  status?: DepartmentStatus;
 }

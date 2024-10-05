@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { IActor } from "../../../domain/entities/actor/IActor";
 import { Status } from "../../../domain/enums/actor/Status";
 import { DocumentType } from "../../../domain/enums/actor/DocumentType";
@@ -34,15 +34,15 @@ export class Actor implements IActor {
   @UpdateDateColumn({ name: "updated_at" })
   updated_at: Date;
 
-  @Column({ default: "active" })
+  @Column({ default: Status.ACTIVE })
   status: Status;
 
   @ManyToOne(() => Role, (role) => role.actors)
   @JoinColumn({ name: "role_id" })
-  role: Role["id"];
+  role: Role;
 
   @ManyToOne(() => Department, (department) => department.actors)
   @JoinColumn({ name: "department_id" })
-  department: Department["id"];
+  department: Department;
 }
 
