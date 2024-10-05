@@ -15,4 +15,12 @@ export class MaintenanceService implements IMaintenanceService {
       throw error;
     }
   }
+
+  async getAllMaintenances(): Promise<IMaintenance[]> {
+    try {
+      return await this.maintenanceRepository.getAll();
+    } catch (error) {
+      throw error;
+    }
+  }
 }

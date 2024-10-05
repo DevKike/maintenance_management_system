@@ -12,4 +12,12 @@ export class MaintenanceUseCase implements IMaintenanceUseCase {
       throw error;
     }
   }
+
+  async getAllMaintenances(): Promise<IMaintenance[]> {
+    try {
+      return await this.maintenanceService.getAllMaintenances();
+    } catch (error) {
+      throw error;
+    }
+  }
 }

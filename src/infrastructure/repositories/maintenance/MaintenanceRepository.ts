@@ -17,4 +17,14 @@ export class MaintenanceRepository implements IMaintenanceRepository {
       throw error;
     }
   }
+
+  async getAll(): Promise<IMaintenance[]> {
+    try {
+      return await this.maintenanceRepository.find({
+        relations: ["department"],
+      });
+    } catch (error) {
+      throw error;
+    }
+  }
 }

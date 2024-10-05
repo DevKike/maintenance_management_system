@@ -15,7 +15,7 @@ export class DepartmentService implements IDepartmentService {
 
   async getDepartments(): Promise<IDepartment[]> {
     try {
-      return await this.departmentRepository.get();
+      return await this.departmentRepository.getAll();
     } catch (error) {
       throw error;
     }

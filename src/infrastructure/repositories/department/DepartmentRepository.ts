@@ -18,7 +18,7 @@ export class DepartmentRepository implements IDepartmentRepository {
     }
   }
 
-  async get(): Promise<IDepartment[]> {
+  async getAll(): Promise<IDepartment[]> {
     try {
       return await this.departmentRepository.find({
         relations: ["coordinator"],

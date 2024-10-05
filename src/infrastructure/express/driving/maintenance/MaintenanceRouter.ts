@@ -19,10 +19,13 @@ export class MaintenanceRouter implements IRouterModule {
     this.maintenanceRouter.post("/", schemaValidator(createMaintenanceSchema), async (req, res) => {
         await ResponseModel.manageResponse(this.maintenanceUseCase.createMaintenance(req.body), res, HttpStatusCode.CREATED, Message.MAINTENANCE_CREATED_SUCCESSFULLY);
     });
+
+    this.maintenanceRouter.get("/", async (req, res) => {
+      await ResponseModel.manageResponse(this.maintenanceUseCase.getAllMaintenances(), res, HttpStatusCode.OK, Message.MAINTENANCES_OBTAINED_SUCCESSFULLY)
+    })
   }
 
   getRouter(): Router {
     return this.maintenanceRouter;
   }
 }
-  
