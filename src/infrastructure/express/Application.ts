@@ -20,6 +20,10 @@ import { MaintenanceRouter } from "./driving/maintenance/MaintenanceRouter";
 import { MaintenanceUseCase } from "../../application/usecases/maintenance/MaintenanceUseCase";
 import { MaintenanceService } from "../services/maintenance/MaintenanceService";
 import { MaintenanceRepository } from "../repositories/maintenance/MaintenanceRepository";
+import { ProcessRouter } from "./driving/process/ProcessRouter";
+import { ProcessUseCase } from "../../application/usecases/process/ProcessUseCase";
+import { ProcessService } from "../services/process/ProcessService";
+import { ProcessRepository } from "../repositories/process/ProcessRepository";
 
 export class Application {
   public app: App;
@@ -32,7 +36,7 @@ export class Application {
   }
 
   private initMiddlewares(): void {
-    this.app.use(cors()); 
+    this.app.use(cors());
     this.app.use(express.json());
   }
 
@@ -46,18 +50,30 @@ export class Application {
     const actorService = new ActorService(actorRepository);
     const actorUseCase = new ActorUseCase(actorService, roleService);
     const actorRouter = new ActorRouter(actorUseCase);
-    
+
     const departmentRepository = new DepartmentRepository(AppDataSource);
     const departmentService = new DepartmentService(departmentRepository);
     const departmentUseCase = new DepartmentUseCase(departmentService);
     const departmentRouter = new DepartmentRouter(departmentUseCase);
 
-    const maintenanceRepository = new MaintenanceRepository(AppDataSource)
-    const maintenanceService = new MaintenanceService(maintenanceRepository)
+    const maintenanceRepository = new MaintenanceRepository(AppDataSource);
+    const maintenanceService = new MaintenanceService(maintenanceRepository);
     const maintenanceUseCase = new MaintenanceUseCase(maintenanceService);
     const maintenanceRouter = new MaintenanceRouter(maintenanceUseCase);
 
-    this.routerManager = new RouterManager(this.app, roleRouter, actorRouter, departmentRouter, maintenanceRouter);
+    const processRepository = new ProcessRepository(AppDataSource);
+    const processService = new ProcessService(processRepository);
+    const processUseCase = new ProcessUseCase(processService);
+    const processRouter = new ProcessRouter(processUseCase);
+
+    this.routerManager = new RouterManager(
+      this.app,
+      roleRouter,
+      actorRouter,
+      departmentRouter,
+      maintenanceRouter,
+      processRouter
+    );
     this.routerManager.manageRoutes();
   }
 
