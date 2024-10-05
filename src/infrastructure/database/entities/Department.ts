@@ -1,7 +1,8 @@
 import { IDepartment } from "../../../domain/entities/department/IDepartment";
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Actor } from "./Actor";
 import { Maintenance } from "./Maintenance";
+import { DepartmentStatus } from "../../../domain/enums/department/DepartmentStatus";
 
 @Entity()
 export class Department implements IDepartment {
@@ -22,6 +23,9 @@ export class Department implements IDepartment {
   
   @UpdateDateColumn({ name: "updated_at" })
   updated_at: Date;
+
+  @Column({ default: DepartmentStatus.ACTIVE })
+  status: DepartmentStatus;
 
   @OneToOne(() => Actor)
   @JoinColumn({ name: "coordinator_id" })
