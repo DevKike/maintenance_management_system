@@ -20,9 +20,7 @@ export class ProcessRepository implements IProcessRepository {
 
   async getAll(): Promise<IProcess[]> {
     try {
-      return await this.processRepository.find({
-        relations: ["maintenance"],
-      });
+      return await this.processRepository.find();
     } catch (error) {
       throw error;
     }

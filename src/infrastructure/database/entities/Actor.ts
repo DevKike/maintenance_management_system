@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { IActor } from "../../../domain/entities/actor/IActor";
 import { Status } from "../../../domain/enums/actor/Status";
 import { DocumentType } from "../../../domain/enums/actor/DocumentType";
@@ -10,13 +10,13 @@ export class Actor implements IActor {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ length: 40 })
   name: string;
 
-  @Column()
+  @Column({ length: 40 })
   last_name: string;
 
-  @Column({ unique: true })
+  @Column({ unique: true, length: 15 })
   phone_number: string;
 
   @Column({ unique: true })
@@ -25,7 +25,7 @@ export class Actor implements IActor {
   @Column({ unique: true })
   document_number: number;
 
-  @Column()
+  @Column({ length: 30 })
   document_type: DocumentType;
 
   @CreateDateColumn({ name: "created_at" })
@@ -34,15 +34,15 @@ export class Actor implements IActor {
   @UpdateDateColumn({ name: "updated_at" })
   updated_at: Date;
 
-  @Column({ default: Status.ACTIVE })
+  @Column({ default: Status.ACTIVE, length: 20 })
   status: Status;
 
-  @ManyToOne(() => Role, (role) => role.actors)
+  @ManyToOne(() => Department, (department) => department.actors, { nullable: false })
+  @JoinColumn({ name: "department_id" })
+  department: Department
+
+  @ManyToOne(() => Role, (role) => role.actors, { nullable: false })
   @JoinColumn({ name: "role_id" })
   role: Role;
-
-  @ManyToOne(() => Department, (department) => department.actors)
-  @JoinColumn({ name: "department_id" })
-  department: Department;
 }
 

@@ -1,6 +1,6 @@
 import { MaintenanceStatus } from "../../enums/maintenance/MaintenanceStatus";
-import { MaintenanceType } from "../../enums/maintenance/MaintenanceType";
 import { IDepartment } from "../department/IDepartment";
+import { IProcess } from "../process/IProcess";
 
 export interface IMaintenance {
   id: number;
@@ -9,6 +9,15 @@ export interface IMaintenance {
   created_at: Date;
   updated_at: Date;
   status?: MaintenanceStatus;
-  type: MaintenanceType;
+  maintenance_type: IMaintenanceType;
+  process: IProcess;
   department: IDepartment;
+}
+
+export interface IMaintenanceType {
+  id: number;
+  name: string;
+  description: string;
+  created_at: Date;
+  updated_at: Date;
 }

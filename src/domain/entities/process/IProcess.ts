@@ -1,8 +1,10 @@
-import { IMaintenance } from "../maintenance/IMaintenance";
+import { IMaintenanceType } from "../maintenance/IMaintenance";
 
 export interface IProcess {
   id: number;
   name: string;
   description: string;
-  maintenance: IMaintenance;
+  created_at: Date;
+  updated_at: Date;
+  maintenance_type: IMaintenanceType;
 }

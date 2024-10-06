@@ -1,31 +1,21 @@
 import { IDepartment } from "../../../domain/entities/department/IDepartment";
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  JoinColumn,
-  OneToMany,
-  OneToOne,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
-} from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Actor } from "./Actor";
 import { Maintenance } from "./Maintenance";
 import { DepartmentStatus } from "../../../domain/enums/department/DepartmentStatus";
-import { Process } from "./Process";
 
 @Entity()
 export class Department implements IDepartment {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ length: 40 })
   name: string;
 
-  @Column()
+  @Column({ length: 255 })
   description: string;
 
-  @Column()
+  @Column({ length: 15 })
   phone_number: string;
 
   @CreateDateColumn({ name: "created_at" })
@@ -34,13 +24,13 @@ export class Department implements IDepartment {
   @UpdateDateColumn({ name: "updated_at" })
   updated_at: Date;
 
-  @Column({ default: DepartmentStatus.ACTIVE })
+  @Column({ default: DepartmentStatus.ACTIVE,  length: 40 })
   status: DepartmentStatus;
 
   @OneToOne(() => Actor)
   @JoinColumn({ name: "coordinator_id" })
   coordinator: Actor;
-
+  
   @OneToMany(() => Actor, (actor) => actor.department)
   actors: Actor[];
 

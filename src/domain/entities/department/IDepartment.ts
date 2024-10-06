@@ -6,6 +6,8 @@ export interface IDepartment {
   name: string;
   description: string;
   phone_number: string;
-  coordinator: IActor;
+  created_at: Date;
+  updated_at: Date;
   status?: DepartmentStatus;
+  coordinator: IActor;
 }

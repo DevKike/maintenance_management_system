@@ -11,10 +11,9 @@ export interface IActor {
   email: string;
   document_number: number;
   document_type: DocumentType;
-  created_at: Date,
-  updated_at: Date,
+  created_at: Date;
+  updated_at: Date;
   status: Status;
-  role: IRole;
   department: IDepartment;
+  role: IRole;
 }
-
