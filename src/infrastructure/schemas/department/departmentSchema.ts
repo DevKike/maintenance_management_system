@@ -21,7 +21,7 @@ export const createDepartmentSchema = Joi.object({
   description: description.required(),
   phone_number: phone_number.required(),
   status: status,
-  coordinator: coordinator_id.required(),
+  coordinator: coordinator_id,
 });
 
 export const updateDepartmentSchema = Joi.object({

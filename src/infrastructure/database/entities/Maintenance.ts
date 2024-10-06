@@ -10,7 +10,7 @@ export class Maintenance implements IMaintenance {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ unique: true, length: 40 })
+  @Column({ length: 150 })
   name: string;
 
   @Column({ length: 255 })

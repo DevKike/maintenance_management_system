@@ -5,6 +5,7 @@ import { RoleRouter } from "./role/RoleRouter";
 import { DepartmentRouter } from "./department/DepartmentRouter";
 import { MaintenanceRouter } from "./maintenance/MaintenanceRouter";
 import { ProcessRouter } from "./process/ProcessRouter";
+import { MaintenanceTypeRouter } from "./maintenance/MaintenanceTypeRouter";
 
 export class RouterManager implements IRouterManager {
   constructor(
@@ -12,6 +13,7 @@ export class RouterManager implements IRouterManager {
     private readonly roleRouter: RoleRouter,
     private readonly actorRouter: ActorRouter,
     private readonly departmentRouter: DepartmentRouter,
+    private readonly maintenanceTypeRouter: MaintenanceTypeRouter,
     private readonly maintenanceRouter: MaintenanceRouter,
     private readonly processRouter: ProcessRouter,
   ) {}
@@ -20,6 +22,7 @@ export class RouterManager implements IRouterManager {
     this.app.use("/api/roles", this.roleRouter.getRouter());
     this.app.use("/api/actors", this.actorRouter.getRouter());
     this.app.use("/api/departments", this.departmentRouter.getRouter());
+    this.app.use("/api/maintenances/types", this.maintenanceTypeRouter.getRouter());
     this.app.use("/api/maintenances", this.maintenanceRouter.getRouter());
     this.app.use("/api/processes", this.processRouter.getRouter());
   }

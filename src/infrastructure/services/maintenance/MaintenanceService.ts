@@ -5,12 +5,14 @@ import { IMaintenanceService } from "../../../domain/entities/maintenance/IMaint
 export class MaintenanceService implements IMaintenanceService {
   constructor(private readonly maintenanceRepository: IMaintenanceRepository) {}
 
-  async createMaintenance(maintenance: IMaintenance): Promise<void> {
+  async createMaintenance(maintenance: IMaintenance, department_id: number): Promise<void> {
     try {
       if (!maintenance.status) {
         delete maintenance.status;
       }
-      await this.maintenanceRepository.create(maintenance);
+
+      const newMaintenance = { ...maintenance, department_id };
+      await this.maintenanceRepository.create(newMaintenance);
     } catch (error) {
       throw error;
     }

@@ -24,6 +24,10 @@ import { ProcessRouter } from "./driving/process/ProcessRouter";
 import { ProcessUseCase } from "../../application/usecases/process/ProcessUseCase";
 import { ProcessService } from "../services/process/ProcessService";
 import { ProcessRepository } from "../repositories/process/ProcessRepository";
+import { MaintenanceTypeRouter } from "./driving/maintenance/MaintenanceTypeRouter";
+import { MaintenanceTypeUseCase } from "../../application/usecases/maintenance/MaintenanceTypeUseCase";
+import { MaintenanceTypeRepository } from "../repositories/maintenance/MaintenanceTypeRepository";
+import { MaintenanceTypeService } from "../services/maintenance/MaintenanceTypeService";
 
 export class Application {
   public app: App;
@@ -55,6 +59,11 @@ export class Application {
     const departmentService = new DepartmentService(departmentRepository);
     const departmentUseCase = new DepartmentUseCase(departmentService);
     const departmentRouter = new DepartmentRouter(departmentUseCase);
+    
+    const maintenanceTypeRepository = new MaintenanceTypeRepository(AppDataSource);
+    const maintenanceTypeService = new MaintenanceTypeService(maintenanceTypeRepository)
+    const maintenanceTypeUseCase = new MaintenanceTypeUseCase(maintenanceTypeService);
+    const maintenanceTypeRouter = new MaintenanceTypeRouter(maintenanceTypeUseCase)
 
     const maintenanceRepository = new MaintenanceRepository(AppDataSource);
     const maintenanceService = new MaintenanceService(maintenanceRepository);
@@ -71,6 +80,7 @@ export class Application {
       roleRouter,
       actorRouter,
       departmentRouter,
+      maintenanceTypeRouter,
       maintenanceRouter,
       processRouter
     );

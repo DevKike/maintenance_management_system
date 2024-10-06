@@ -23,7 +23,7 @@ export class ActorRepository implements IActorRepository {
       return await this.actorRepository.find({
         take: limit,
         skip,
-        relations: ["role"],
+        relations: ["department", "role"],
       });
     } catch (error) {
       throw error;

@@ -29,7 +29,6 @@ export const createMaintenanceSchema = Joi.object({
   description: description.required(),
   status: status,
   type: type.required(),
-  department: department_id.required(),
 });
 
 export const updateMaintenanceSchema = Joi.object({
