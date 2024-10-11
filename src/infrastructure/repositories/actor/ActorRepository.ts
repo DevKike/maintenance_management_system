@@ -34,7 +34,7 @@ export class ActorRepository implements IActorRepository {
     try {
       return await this.actorRepository.find({
         where: params,
-        relations: ["role"],
+        relations: ["department", "role"],
       });
     } catch (error) {
       throw error;
