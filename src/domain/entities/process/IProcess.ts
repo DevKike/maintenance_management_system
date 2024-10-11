@@ -1,3 +1,4 @@
+import { IDepartment } from "../department/IDepartment";
 import { IMaintenanceType } from "../maintenance/IMaintenance";
 
 export interface IProcess {

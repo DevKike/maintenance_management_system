@@ -11,7 +11,6 @@ export interface IMaintenance {
   status?: MaintenanceStatus;
   maintenance_type: IMaintenanceType;
   process: IProcess;
-  department: IDepartment;
 }
 
 export interface IMaintenanceType {
@@ -20,4 +19,7 @@ export interface IMaintenanceType {
   description: string;
   created_at: Date;
   updated_at: Date;
+  department: IDepartment;
+  maintenances: IMaintenance[];
+  process: IProcess;
 }
