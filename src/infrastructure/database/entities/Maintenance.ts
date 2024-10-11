@@ -28,12 +28,12 @@ export class Maintenance implements IMaintenance {
   @ManyToOne(() => MaintenanceType, (maintenanceType) => maintenanceType.maintenances)
   @JoinColumn({ name: "maintenance_type_id" })
   maintenance_type: MaintenanceType;
+  
+  @ManyToOne(() => Department, (department) => department.maintenances)
+  @JoinColumn({ name: "department_id" })
+  department: Department;
 
   @ManyToOne(() => Process, (process) => process.maintenances)
   @JoinColumn({ name: "process_id" })
   process: Process;
-
-  @ManyToOne(() => Department, (department) => department.maintenances)
-  @JoinColumn({ name: "department_id" })
-  department: Department;
 }
