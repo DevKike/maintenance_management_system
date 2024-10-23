@@ -1,5 +1,5 @@
 import Joi from "joi";
-import { Status } from "../../../domain/enums/actor/ActorStatus";
+import { ActorStatus } from "../../../domain/enums/actor/ActorStatus";
 import { DocumentType } from "../../../domain/enums/actor/DocumentType";
 import { RoleId } from "../../../domain/enums/role/Role";
 
@@ -10,7 +10,7 @@ const email = Joi.string().email().pattern(/^[a-zA-Z0-9._%+-]+@unicolombo\.edu\.
 const document_number = Joi.number().max(9999999999).message("Document number must be less or equal to 10 length");
 const document_type = Joi.string().valid(DocumentType.CC, DocumentType.CE, DocumentType.PB, DocumentType.RC).max(30);
 const departmentId = Joi.number();
-const status = Joi.string().valid(Status.ACTIVE, Status.INACTIVE, Status.SUSPENDED);
+const status = Joi.string().valid(ActorStatus.ACTIVE, ActorStatus.INACTIVE, ActorStatus.SUSPENDED);
 const roleId = Joi.number().valid(RoleId.ADMINISTRATOR, RoleId.MAINTENANCE_COORDINATOR, RoleId.SYSTEM_ASSISTANT, RoleId.SYSTEM_AUXILIARY, RoleId.SYSTEM_COORDINATOR);
 
 export const createActorSchema = Joi.object({
