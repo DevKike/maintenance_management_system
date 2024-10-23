@@ -10,3 +10,7 @@ export interface IMaintenance {
   status: MaintenanceStatus;
   assignmentDepartmentTypeMaintenance: IAssignmentDepartmentTypeMaintenance;
 }
+
+export interface ICreateMaintenance extends Omit<IMaintenance, "id" | "createdAt" | "updatedAt"> {}
+
+export interface IUpdateMaintenance extends Partial<Omit<IMaintenance, "id" | "createdAt" | "updatedAt">> {}
