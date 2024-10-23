@@ -7,7 +7,7 @@ export class DepartmentService implements IDepartmentService {
 
   async createDepartment(department: ICreateDepartment): Promise<void> {
     try {
-      await this.departmentRepository.create(department);
+      await this.departmentRepository.save(department);
     } catch (error) {
       throw error;
     }
