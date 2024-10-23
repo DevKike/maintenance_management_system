@@ -20,14 +20,10 @@ import { MaintenanceRouter } from "./driving/maintenance/MaintenanceRouter";
 import { MaintenanceUseCase } from "../../application/usecases/maintenance/MaintenanceUseCase";
 import { MaintenanceService } from "../services/maintenance/MaintenanceService";
 import { MaintenanceRepository } from "../repositories/maintenance/MaintenanceRepository";
-import { ProcessRouter } from "./driving/process/ProcessRouter";
-import { ProcessUseCase } from "../../application/usecases/process/ProcessUseCase";
-import { ProcessService } from "../services/process/ProcessService";
-import { ProcessRepository } from "../repositories/process/ProcessRepository";
 import { MaintenanceTypeRouter } from "./driving/maintenance/MaintenanceTypeRouter";
-import { MaintenanceTypeUseCase } from "../../application/usecases/maintenance/MaintenanceTypeUseCase";
-import { MaintenanceTypeRepository } from "../repositories/maintenance/MaintenanceTypeRepository";
-import { MaintenanceTypeService } from "../services/maintenance/MaintenanceTypeService";
+import { MaintenanceTypeUseCase } from "../../application/usecases/maintenanceType/MaintenanceTypeUseCase";
+import { MaintenanceTypeRepository } from "../repositories/maintenanceType/MaintenanceTypeRepository";
+import { MaintenanceTypeService } from "../services/maintenanceType/MaintenanceTypeService";
 
 export class Application {
   public app: App;
@@ -70,19 +66,13 @@ export class Application {
     const maintenanceUseCase = new MaintenanceUseCase(maintenanceService);
     const maintenanceRouter = new MaintenanceRouter(maintenanceUseCase);
 
-    const processRepository = new ProcessRepository(AppDataSource);
-    const processService = new ProcessService(processRepository);
-    const processUseCase = new ProcessUseCase(processService);
-    const processRouter = new ProcessRouter(processUseCase);
-
     this.routerManager = new RouterManager(
       this.app,
       roleRouter,
       actorRouter,
       departmentRouter,
       maintenanceTypeRouter,
-      maintenanceRouter,
-      processRouter
+      maintenanceRouter
     );
     this.routerManager.manageRoutes();
   }
