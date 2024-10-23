@@ -14,3 +14,7 @@ export interface IDepartment {
   actors: IActor[];
   assignmentDepartmentTypeMaintenances: IAssignmentDepartmentTypeMaintenance[];
 }
+
+export interface ICreateDepartment extends Omit<IDepartment, "id" | "createdAt" | "updatedAt">{}
+
+export interface IUpdateDepartment extends Partial<Omit<IDepartment, "id" | "createdAt" | "updatedAt">>{}

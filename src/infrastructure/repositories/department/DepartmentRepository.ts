@@ -1,5 +1,5 @@
 import { DataSource, Repository } from "typeorm";
-import { IDepartment } from "../../../domain/entities/department/IDepartment";
+import { ICreateDepartment, IDepartment, IUpdateDepartment } from "../../../domain/entities/department/IDepartment";
 import { IDepartmentRepository } from "../../../domain/entities/department/IDepartmentRepository";
 import { Department } from "../../database/entities/Department";
 
@@ -10,7 +10,7 @@ export class DepartmentRepository implements IDepartmentRepository {
     this.departmentRepository = this.dataSource.getRepository(Department);
   }
 
-  async create(department: IDepartment): Promise<void> {
+  async create(department: ICreateDepartment): Promise<void> {
     try {
       await this.departmentRepository.save(department);
     } catch (error) {
@@ -29,7 +29,7 @@ export class DepartmentRepository implements IDepartmentRepository {
     }
   }
 
-  async update(id: number, department: IDepartment): Promise<void> {
+  async update(id: number, department: IUpdateDepartment): Promise<void> {
     try {
       await this.departmentRepository.update(id, department);
     } catch (error) {

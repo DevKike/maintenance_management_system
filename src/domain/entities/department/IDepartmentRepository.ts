@@ -1,7 +1,7 @@
-import { IDepartment } from "./IDepartment";
+import { ICreateDepartment, IDepartment, IUpdateDepartment } from "./IDepartment";
 
 export interface IDepartmentRepository {
-  create(department: IDepartment): Promise<void>;
+  create(department: ICreateDepartment): Promise<void>;
   getAll(): Promise<IDepartment[]>;
-  update(id: number, department: IDepartment): Promise<void>;
+  update(id: number, department: IUpdateDepartment): Promise<void>;
 }
