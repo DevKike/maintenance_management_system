@@ -1,6 +1,6 @@
-import { IMaintenanceType } from "../../../domain/entities/maintenance/IMaintenance";
-import { IMaintenanceTypeService } from "../../../domain/entities/maintenance/IMaintenanceService";
-import { IMaintenanceTypeUseCase } from "../../../domain/entities/maintenance/IMaintenanceUseCase";
+import { IMaintenanceType } from "../../../domain/entities/maintenanceType/IMaintenanceType";
+import { IMaintenanceTypeService } from "../../../domain/entities/maintenanceType/IMaintenanceTypeService";
+import { IMaintenanceTypeUseCase } from "../../../domain/entities/maintenanceType/IMaintenanceTypeUseCase";
 
 export class MaintenanceTypeUseCase implements IMaintenanceTypeUseCase {
   constructor(private readonly maintenanceTypeService: IMaintenanceTypeService) {}

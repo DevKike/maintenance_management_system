@@ -1,7 +1,7 @@
 import { DataSource, Repository } from "typeorm";
-import { IMaintenanceTypeRepository } from "../../../domain/entities/maintenance/IMaintenanceRepository";
+import { IMaintenanceTypeRepository } from "../../../domain/entities/maintenanceType/IMaintenanceTypeRepository";
 import { MaintenanceType } from "../../database/entities/MaintenanceType";
-import { IMaintenanceType } from "../../../domain/entities/maintenance/IMaintenance";
+import { IMaintenanceType } from "../../../domain/entities/maintenanceType/IMaintenanceType";
 
 export class MaintenanceTypeRepository implements IMaintenanceTypeRepository {
   private readonly maintenanceTypeRepository: Repository<MaintenanceType>;

@@ -14,14 +14,14 @@ export class ActorUseCase implements IActorUseCase {
   ) {}
 
   async createActor(actor: IActor): Promise<void> {
-    if (actor.phone_number) {
+    if (actor.phoneNumber) {
       const existingActorByPhoneNumber =
         await this.actorService.getActorsByQueryParams({
-          phone_number: actor.phone_number,
+          phoneNumber: actor.phoneNumber,
         });
       if (existingActorByPhoneNumber.length > 0) {
         throw new AlreadyExistsException(
-          `${Message.ACTOR_ALREADY_EXISTS_EXCEPTION} with phone_number: ${actor.phone_number}`
+          `${Message.ACTOR_ALREADY_EXISTS_EXCEPTION} with phone number: ${actor.phoneNumber}`
         );
       }
     }
@@ -36,14 +36,14 @@ export class ActorUseCase implements IActorUseCase {
       }
     }
 
-    if (actor.document_number) {
+    if (actor.documentNumber) {
       const existingActorByDocumentNumber =
         await this.actorService.getActorsByQueryParams({
-          document_number: actor.document_number,
+          documentNumber: actor.documentNumber,
         });
       if (existingActorByDocumentNumber.length > 0) {
         throw new AlreadyExistsException(
-          `${Message.ACTOR_ALREADY_EXISTS_EXCEPTION} with document_number: ${actor.document_number}`
+          `${Message.ACTOR_ALREADY_EXISTS_EXCEPTION} with document number: ${actor.documentNumber}`
         );
       }
     }

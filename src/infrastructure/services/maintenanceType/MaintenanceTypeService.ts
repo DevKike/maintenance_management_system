@@ -1,6 +1,7 @@
-import { IMaintenanceType } from "../../../domain/entities/maintenance/IMaintenance";
-import { IMaintenanceTypeRepository } from "../../../domain/entities/maintenance/IMaintenanceRepository";
-import { IMaintenanceTypeService } from "../../../domain/entities/maintenance/IMaintenanceService";
+import { IMaintenanceType } from "../../../domain/entities/maintenanceType/IMaintenanceType";
+import { IMaintenanceTypeRepository } from "../../../domain/entities/maintenanceType/IMaintenanceTypeRepository";
+import { IMaintenanceTypeService } from "../../../domain/entities/maintenanceType/IMaintenanceTypeService";
+
 
 export class MaintenanceTypeService implements IMaintenanceTypeService {
   constructor(private readonly maintenanceTypeRepository: IMaintenanceTypeRepository) {}
