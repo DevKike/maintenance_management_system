@@ -1,4 +1,4 @@
-import { IActor } from "../../../domain/entities/actor/IActor";
+import { IActor, ICreateActor, IUpdateActor } from "../../../domain/entities/actor/IActor";
 import { IActorService } from "../../../domain/entities/actor/IActorService";
 import { IActorUseCase } from "../../../domain/entities/actor/IActorUseCase";
 import { IRoleService } from "../../../domain/entities/role/IRoleService";
@@ -13,7 +13,7 @@ export class ActorUseCase implements IActorUseCase {
     private readonly roleService: IRoleService
   ) {}
 
-  async createActor(actor: IActor): Promise<void> {
+  async createActor(actor: ICreateActor): Promise<void> {
     if (actor.phoneNumber) {
       const existingActorByPhoneNumber =
         await this.actorService.getActorsByQueryParams({
@@ -27,8 +27,7 @@ export class ActorUseCase implements IActorUseCase {
     }
 
     if (actor.email) {
-      const existingActorByEmail =
-        await this.actorService.getActorsByQueryParams({ email: actor.email });
+      const existingActorByEmail = await this.actorService.getActorsByQueryParams({ email: actor.email });
       if (existingActorByEmail.length > 0) {
         throw new AlreadyExistsException(
           `${Message.ACTOR_ALREADY_EXISTS_EXCEPTION} with email: ${actor.email}`
@@ -90,7 +89,7 @@ export class ActorUseCase implements IActorUseCase {
     return actor;
   }
 
-  async updateActorById(id: number, actor: IActor): Promise<void> {
+  async updateActorById(id: number, actor: IUpdateActor): Promise<void> {
     try {
       this.actorService.updateActorById(id, actor);
     } catch (error) {

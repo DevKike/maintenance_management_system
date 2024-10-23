@@ -1,7 +1,7 @@
 import { DataSource, Repository } from "typeorm";
 import { Actor } from "../../database/entities/Actor";
 import { IActorRepository } from "../../../domain/entities/actor/IActorRepository";
-import { IActor } from "../../../domain/entities/actor/IActor";
+import { IActor, ICreateActor, IUpdateActor } from "../../../domain/entities/actor/IActor";
 
 export class ActorRepository implements IActorRepository {
   private readonly actorRepository: Repository<Actor>;
@@ -10,7 +10,7 @@ export class ActorRepository implements IActorRepository {
     this.actorRepository = this.dataSource.getRepository(Actor);
   }
 
-  async save(actor: IActor): Promise<void> {
+  async save(actor: ICreateActor): Promise<void> {
     try {
       await this.actorRepository.save(actor);
     } catch (error) {
@@ -41,7 +41,7 @@ export class ActorRepository implements IActorRepository {
     }
   }
 
-  async updateById(id: number, actor: IActor): Promise<void> {
+  async updateById(id: number, actor: IUpdateActor): Promise<void> {
     try {
       const data = { id, actor };
       await this.actorRepository.update(id, actor);
