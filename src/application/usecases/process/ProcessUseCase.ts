@@ -1,6 +1,6 @@
-import { IProcess } from "../../../domain/entities/process/IProcess";
-import { IProcessService } from "../../../domain/entities/process/IProcessService";
-import { IProcessUseCase } from "../../../domain/entities/process/IProcessUseCase";
+import { IProcess } from "../../../domain/entities/assignmentDepartmentTypeMaintenance/IAssignmentDepartmentTypeMaintenance";
+import { IProcessService } from "../../../domain/entities/assignmentDepartmentTypeMaintenance/IProcessService";
+import { IProcessUseCase } from "../../../domain/entities/assignmentDepartmentTypeMaintenance/IProcessUseCase";
 
 export class ProcessUseCase implements IProcessUseCase {
   constructor(private readonly processService: IProcessService) {}

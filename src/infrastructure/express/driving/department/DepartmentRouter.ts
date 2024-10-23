@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { IRouterModule } from "../../interfaces/IRouterModule";
 import { ResponseModel } from "../../response/ResponseModel";
-import { HttpStatusCode } from "../../../../domain/enums/httpStatusCode/HttpStatusCode";
+import { HttpStatusCode } from "../../../../domain/enums/http/HttpStatusCode";
 import { Message } from "../../../../domain/enums/message/Message";
 import { IDepartmentUseCase } from "../../../../domain/entities/department/IDepartmentUseCase";
 import { schemaValidator } from "../../middlewares/schemaValidator";

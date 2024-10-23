@@ -1,6 +1,6 @@
-import { IProcess } from "../../../domain/entities/process/IProcess";
-import { IProcessRepository } from "../../../domain/entities/process/IProcessRepository";
-import { IProcessService } from "../../../domain/entities/process/IProcessService";
+import { IProcess } from "../../../domain/entities/assignmentDepartmentTypeMaintenance/IAssignmentDepartmentTypeMaintenance";
+import { IProcessRepository } from "../../../domain/entities/assignmentDepartmentTypeMaintenance/IProcessRepository";
+import { IProcessService } from "../../../domain/entities/assignmentDepartmentTypeMaintenance/IProcessService";
 
 export class ProcessService implements IProcessService {
   constructor(private readonly processRepository: IProcessRepository) {}

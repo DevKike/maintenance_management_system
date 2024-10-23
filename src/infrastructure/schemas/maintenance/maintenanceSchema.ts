@@ -1,6 +1,6 @@
 import Joi from "joi";
 import { MaintenanceStatus } from "../../../domain/enums/maintenance/MaintenanceStatus";
-import { MaintenanceType } from "../../../domain/enums/maintenance/MaintenanceType";
+import { MaintenanceType } from "../../../domain/enums/maintenanceType/MaintenanceType";
 
 const name = Joi.string();
 const description = Joi.string();

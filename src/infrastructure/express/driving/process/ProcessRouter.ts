@@ -1,8 +1,8 @@
 import { Router } from "express";
 import { IRouterModule } from "../../interfaces/IRouterModule";
-import { IProcessUseCase } from "../../../../domain/entities/process/IProcessUseCase";
+import { IProcessUseCase } from "../../../../domain/entities/assignmentDepartmentTypeMaintenance/IProcessUseCase";
 import { ResponseModel } from "../../response/ResponseModel";
-import { HttpStatusCode } from "../../../../domain/enums/httpStatusCode/HttpStatusCode";
+import { HttpStatusCode } from "../../../../domain/enums/http/HttpStatusCode";
 import { Message } from "../../../../domain/enums/message/Message";
 
 export class ProcessRouter implements IRouterModule {
@@ -15,7 +15,8 @@ export class ProcessRouter implements IRouterModule {
 
   initRoutes(): void {
     this.processRouter.post("/", async (req, res) => {
-      ResponseModel.manageResponse(this.processUseCase.createProcess(req.body), res, HttpStatusCode.CREATED, Message.PROCESS_CREATED_SUCCESSFULLY);
+      console.log(req.body);
+     /*  ResponseModel.manageResponse(this.processUseCase.createProcess(req.body), res, HttpStatusCode.CREATED, Message.PROCESS_CREATED_SUCCESSFULLY); */
     });
 
     this.processRouter.get("/", async (req, res) => {

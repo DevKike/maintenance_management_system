@@ -1,7 +1,6 @@
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import { Maintenance } from "./Maintenance";
-import { Process } from "./Process";
-import { IMaintenanceType } from "../../../domain/entities/maintenance/IMaintenance";
+import { IMaintenanceType } from "../../../domain/entities/maintenanceType/IMaintenanceType";
+import { AssignmentDepartmentTypeMaintenance } from "./AssignmentDepartmentTypeMaintenance";
 
 @Entity()
 export class MaintenanceType implements IMaintenanceType {
@@ -11,18 +10,15 @@ export class MaintenanceType implements IMaintenanceType {
   @Column()
   name: string;
 
-  @Column({ nullable: true })
+  @Column()
   description: string;
 
-  @CreateDateColumn()
-  created_at: Date;
+  @CreateDateColumn({ name: "created_at" })
+  createdAt: Date;
 
-  @UpdateDateColumn()
-  updated_at: Date;
+  @UpdateDateColumn({ name: "updated_at" })
+  updatedAt: Date;
 
-  @OneToMany(() => Maintenance, (maintenance) => maintenance.maintenance_type)
-  maintenances: Maintenance[];
-
-  @OneToMany(() => Process, (process) => process.maintenance_type)
-  processes: Process[];
+  @OneToMany(() => AssignmentDepartmentTypeMaintenance, (assignmentDepartmentTypeMaintenance) => assignmentDepartmentTypeMaintenance.maintenanceType)
+  assignmentDepartmentTypeMaintenances: AssignmentDepartmentTypeMaintenance[];
 }

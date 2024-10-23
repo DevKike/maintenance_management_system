@@ -1,25 +1,12 @@
 import { MaintenanceStatus } from "../../enums/maintenance/MaintenanceStatus";
-import { IDepartment } from "../department/IDepartment";
-import { IProcess } from "../process/IProcess";
+import { IAssignmentDepartmentTypeMaintenance } from "../assignmentDepartmentTypeMaintenance/IAssignmentDepartmentTypeMaintenance";
 
 export interface IMaintenance {
   id: number;
   name: string;
   description: string;
-  created_at: Date;
-  updated_at: Date;
-  status?: MaintenanceStatus;
-  maintenance_type: IMaintenanceType;
-  process: IProcess;
-}
-
-export interface IMaintenanceType {
-  id: number;
-  name: string;
-  description: string;
-  created_at: Date;
-  updated_at: Date;
-  department: IDepartment;
-  maintenances: IMaintenance[];
-  process: IProcess;
+  createdAt: Date;
+  updatedAt: Date;
+  status: MaintenanceStatus;
+  assignmentDepartmentTypeMaintenance: IAssignmentDepartmentTypeMaintenance;
 }

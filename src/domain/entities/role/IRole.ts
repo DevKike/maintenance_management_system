@@ -6,4 +6,3 @@ export interface IRole {
   description: string;
   actors: IActor[];
 }
-

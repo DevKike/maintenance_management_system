@@ -1,7 +1,7 @@
 import { DataSource, Repository } from "typeorm";
-import { IProcessRepository } from "../../../domain/entities/process/IProcessRepository";
+import { IProcessRepository } from "../../../domain/entities/assignmentDepartmentTypeMaintenance/IProcessRepository";
 import { Process } from "../../database/entities/Process";
-import { IProcess } from "../../../domain/entities/process/IProcess";
+import { IProcess } from "../../../domain/entities/assignmentDepartmentTypeMaintenance/IAssignmentDepartmentTypeMaintenance";
 
 export class ProcessRepository implements IProcessRepository {
   private readonly processRepository: Repository<Process>;

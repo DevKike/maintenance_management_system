@@ -1,4 +1,4 @@
-export enum RoleId {
+|export enum RoleId {
   ADMINISTRATOR = 1,
   SYSTEM_COORDINATOR = 2,
   SYSTEM_ASSISTANT = 3,

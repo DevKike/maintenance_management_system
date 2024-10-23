@@ -1,19 +1,19 @@
 import { DocumentType } from "../../enums/actor/DocumentType";
-import { Status } from "../../enums/actor/Status";
+import { ActorStatus } from "../../enums/actor/ActorStatus";
 import { IDepartment } from "../department/IDepartment";
 import { IRole } from "../role/IRole";
 
 export interface IActor {
   id: number;
   name: string;
-  last_name: string;
-  phone_number: string;
+  lastName: string;
+  phoneNumber: string;
   email: string;
-  document_number: number;
-  document_type: DocumentType;
-  created_at: Date;
-  updated_at: Date;
-  status: Status;
+  documentNumber: number;
+  documentType: DocumentType;
+  createdAt: Date;
+  updatedAt: Date;
+  status: ActorStatus;
   department: IDepartment;
   role: IRole;
 }
