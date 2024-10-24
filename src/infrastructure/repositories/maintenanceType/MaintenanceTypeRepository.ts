@@ -18,4 +18,12 @@ export class MaintenanceTypeRepository implements IMaintenanceTypeRepository {
       throw error;
     }
   }
+
+  async getAll(): Promise<IMaintenanceType[]> {
+    try {
+      return await this.maintenanceTypeRepository.find();
+    } catch (error) {
+      throw error;
+    }
+  }
 }

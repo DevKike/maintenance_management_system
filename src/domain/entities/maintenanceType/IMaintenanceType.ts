@@ -8,4 +8,3 @@ export interface IMaintenanceType {
   updatedAt: Date;
   assignmentDepartmentTypeMaintenances: IAssignmentDepartmentTypeMaintenance[];
 }
-
