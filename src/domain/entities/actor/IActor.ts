@@ -20,4 +20,4 @@ export interface IActor {
 
 export interface ICreateActor extends Omit<IActor, "id" | "createdAt" | "updatedAt"> {}
 
-export interface IUpdateActor extends Partial<Omit<IActor, "id" | "createdAt" | "updatedAt">>  {}
+export interface IUpdateActor extends Partial<Omit<IActor, "id" | "documentNumber" | "documentType" | "createdAt" | "updatedAt">> {}

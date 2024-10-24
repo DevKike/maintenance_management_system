@@ -15,6 +15,6 @@ export interface IDepartment {
   departmentMaintenanceTypeAssignments: IDepartmentMaintenanceTypeAssignment[];
 }
 
-export interface ICreateDepartment extends Omit<IDepartment, "id" | "createdAt" | "updatedAt">{}
+export interface ICreateDepartment extends Omit<IDepartment, "id" | "createdAt" | "updatedAt" | "actors" | "departmentMaintenanceTypeAssignments"> {}
 
-export interface IUpdateDepartment extends Partial<Omit<IDepartment, "id" | "createdAt" | "updatedAt">>{}
+export interface IUpdateDepartment extends Partial<Omit<IDepartment, "id" | "createdAt" | "updatedAt" | "actors" | "departmentMaintenanceTypeAssignments">> {}
