@@ -1,6 +1,6 @@
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { IMaintenanceType } from "../../../domain/entities/maintenanceType/IMaintenanceType";
-import { AssignmentDepartmentTypeMaintenance } from "./AssignmentDepartmentTypeMaintenance";
+import { DepartmentMaintenanceTypeAssignment } from "./DepartmentMaintenanceTypeAssignment";
 
 @Entity()
 export class MaintenanceType implements IMaintenanceType {
@@ -19,6 +19,6 @@ export class MaintenanceType implements IMaintenanceType {
   @UpdateDateColumn({ name: "updated_at" })
   updatedAt: Date;
 
-  @OneToMany(() => AssignmentDepartmentTypeMaintenance, (assignmentDepartmentTypeMaintenance) => assignmentDepartmentTypeMaintenance.maintenanceType)
-  assignmentDepartmentTypeMaintenances: AssignmentDepartmentTypeMaintenance[];
+  @OneToMany(() => DepartmentMaintenanceTypeAssignment, (departmentMaintenanceTypeAssignment) => departmentMaintenanceTypeAssignment.maintenanceType)
+  departmentMaintenanceTypeAssignments: DepartmentMaintenanceTypeAssignment[];
 }

@@ -1,6 +1,6 @@
 import { DepartmentStatus } from "../../enums/department/DepartmentStatus";
 import { IActor } from "../actor/IActor";
-import { IAssignmentDepartmentTypeMaintenance } from "../assignmentDepartmentTypeMaintenance/IAssignmentDepartmentTypeMaintenance";
+import { IDepartmentMaintenanceTypeAssignment } from "../departmentMaintenanceTypeAssignment/IDepartmentMaintenanceTypeAssignment";
 
 export interface IDepartment {
   id: number;
@@ -12,7 +12,7 @@ export interface IDepartment {
   status: DepartmentStatus;
   coordinator: IActor;
   actors: IActor[];
-  assignmentDepartmentTypeMaintenances: IAssignmentDepartmentTypeMaintenance[];
+  departmentMaintenanceTypeAssignments: IDepartmentMaintenanceTypeAssignment[];
 }
 
 export interface ICreateDepartment extends Omit<IDepartment, "id" | "createdAt" | "updatedAt">{}

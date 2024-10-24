@@ -20,7 +20,8 @@ export class RouterManager implements IRouterManager {
     this.app.use("/api/roles", this.roleRouter.getRouter());
     this.app.use("/api/actors", this.actorRouter.getRouter());
     this.app.use("/api/departments", this.departmentRouter.getRouter());
-    this.app.use("/api/maintenances/types", this.maintenanceTypeRouter.getRouter());
+    this.app.use("/api/maintenances-types/", this.maintenanceTypeRouter.getRouter());
+    this.app.use("/api/department-maintenance-type-assignments/", this.);
     this.app.use("/api/maintenances", this.maintenanceRouter.getRouter());
   }
 }

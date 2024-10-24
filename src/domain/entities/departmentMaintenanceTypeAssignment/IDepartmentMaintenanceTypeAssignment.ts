@@ -1,12 +1,13 @@
-import { AssignmentDepartmentTypeMaintenanceStatus } from "../../enums/assignmentDepartmentTypeMaintenanceStatus/AssignmentDepartmentTypeMaintenanceStatus";
+
+import { DepartmentMaintenanceTypeAssignmentStatus } from "../../enums/DepartmentMaintenanceTypeAssignmentStatus/DepartmentMaintenanceTypeAssignmentStatus";
 import { IDepartment } from "../department/IDepartment";
 import { IMaintenance } from "../maintenance/IMaintenance";
 import { IMaintenanceType } from "../maintenanceType/IMaintenanceType";
 
-export interface IAssignmentDepartmentTypeMaintenance {
+export interface IDepartmentMaintenanceTypeAssignment {
   id: number;
   assignmentDate: Date;
-  status: AssignmentDepartmentTypeMaintenanceStatus;
+  status: DepartmentMaintenanceTypeAssignmentStatus;
   priority: number;
   comments: string;
   department: IDepartment;

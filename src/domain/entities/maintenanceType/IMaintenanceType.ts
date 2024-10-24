@@ -1,4 +1,4 @@
-import { IAssignmentDepartmentTypeMaintenance } from "../assignmentDepartmentTypeMaintenance/IAssignmentDepartmentTypeMaintenance";
+import { IDepartmentMaintenanceTypeAssignment } from "../departmentMaintenanceTypeAssignment/IDepartmentMaintenanceTypeAssignment";
 
 export interface IMaintenanceType {
   id: number;
@@ -6,7 +6,7 @@ export interface IMaintenanceType {
   description: string;
   createdAt: Date;
   updatedAt: Date;
-  assignmentDepartmentTypeMaintenances: IAssignmentDepartmentTypeMaintenance[];
+  departmentMaintenanceTypeAssignments: IDepartmentMaintenanceTypeAssignment[];
 }
 
 export interface ICreateMaintenanceType extends Omit<IMaintenanceType, "id" | "createdAt" | "updatedAt"> {}
