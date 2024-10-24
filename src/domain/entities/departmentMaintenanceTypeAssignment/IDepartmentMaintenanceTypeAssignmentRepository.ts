@@ -1,3 +1,5 @@
-export class IDepartmentMaintenanceTypeAssignmentRepository {
-    save(departmentMaintenanceTypeAssignment: IDepartmentMaintenanceTypeAssignmentRepository)
+import { ICreateDepartmentMaintenanceTypeAssignment } from "./IDepartmentMaintenanceTypeAssignment";
+
+export interface IDepartmentMaintenanceTypeAssignmentRepository {
+  save(departmentMaintenanceTypeAssignment: ICreateDepartmentMaintenanceTypeAssignment): Promise<void>;
 }
