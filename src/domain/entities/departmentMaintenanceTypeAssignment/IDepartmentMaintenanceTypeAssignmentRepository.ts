@@ -1,0 +1,3 @@
+export class IDepartmentMaintenanceTypeAssignmentRepository {
+    save(departmentMaintenanceTypeAssignment: IDepartmentMaintenanceTypeAssignmentRepository)
+}

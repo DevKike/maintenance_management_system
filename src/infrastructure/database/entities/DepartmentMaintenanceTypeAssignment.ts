@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Department } from "./Department";
 import { MaintenanceType } from "./MaintenanceType";
 import { Maintenance } from "./Maintenance";
@@ -11,8 +11,11 @@ export class DepartmentMaintenanceTypeAssignment implements IDepartmentMaintenan
   @PrimaryGeneratedColumn()
   id: number;
 
-  @CreateDateColumn({ name: "assignment_date" })
-  assignmentDate: Date;
+  @CreateDateColumn({ name: "assigned_at" })
+  assignedAt: Date;
+
+  @UpdateDateColumn({ name: "updated_at" })
+  updatedAt: Date;
 
   @Column({ type: "enum", enum: DepartmentMaintenanceTypeAssignmentStatus })
   status: DepartmentMaintenanceTypeAssignmentStatus;

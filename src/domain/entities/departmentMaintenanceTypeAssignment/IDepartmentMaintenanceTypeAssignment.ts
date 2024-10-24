@@ -6,7 +6,8 @@ import { IMaintenanceType } from "../maintenanceType/IMaintenanceType";
 
 export interface IDepartmentMaintenanceTypeAssignment {
   id: number;
-  assignmentDate: Date;
+  assignedAt: Date;
+  updatedAt: Date;
   status: DepartmentMaintenanceTypeAssignmentStatus;
   priority: number;
   comments: string;
@@ -14,3 +15,5 @@ export interface IDepartmentMaintenanceTypeAssignment {
   maintenanceType: IMaintenanceType;
   maintenances: IMaintenance[];
 }
+
+export interface ICreateDepartmentMaintenanceTypeAssignment extends Omit<IDepartmentMaintenanceTypeAssignment, "id" | "assignedAt"> {}
