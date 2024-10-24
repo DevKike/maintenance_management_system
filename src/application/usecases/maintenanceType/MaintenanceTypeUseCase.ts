@@ -1,4 +1,4 @@
-import { IMaintenanceType } from "../../../domain/entities/maintenanceType/IMaintenanceType";
+import { ICreateMaintenanceType, IMaintenanceType } from "../../../domain/entities/maintenanceType/IMaintenanceType";
 import { IMaintenanceTypeService } from "../../../domain/entities/maintenanceType/IMaintenanceTypeService";
 import { IMaintenanceTypeUseCase } from "../../../domain/entities/maintenanceType/IMaintenanceTypeUseCase";
 import { Message } from "../../../domain/enums/message/Message";
@@ -7,7 +7,7 @@ import { NotFoundException } from "../../../domain/exceptions/NotFoundException"
 export class MaintenanceTypeUseCase implements IMaintenanceTypeUseCase {
   constructor(private readonly maintenanceTypeService: IMaintenanceTypeService) {}
 
-  async createMaintenanceType(maintenanceType: IMaintenanceType): Promise<void> {
+  async createMaintenanceType(maintenanceType: ICreateMaintenanceType): Promise<void> {
     try {
       await this.maintenanceTypeService.createMaintenanceType(maintenanceType);
     } catch (error) {

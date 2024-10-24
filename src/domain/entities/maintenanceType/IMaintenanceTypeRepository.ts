@@ -1,6 +1,6 @@
-import { IMaintenanceType } from "./IMaintenanceType";
+import { ICreateMaintenanceType, IMaintenanceType } from "./IMaintenanceType";
 
 export interface IMaintenanceTypeRepository {
-  save(maintenanceType: IMaintenanceType): Promise<void>;
+  save(maintenanceType: ICreateMaintenanceType): Promise<void>;
   getAll(): Promise<IMaintenanceType[]>;
 }

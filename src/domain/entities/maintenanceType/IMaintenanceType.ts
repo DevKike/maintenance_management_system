@@ -8,3 +8,7 @@ export interface IMaintenanceType {
   updatedAt: Date;
   assignmentDepartmentTypeMaintenances: IAssignmentDepartmentTypeMaintenance[];
 }
+
+export interface ICreateMaintenanceType extends Omit<IMaintenanceType, "id" | "createdAt" | "updatedAt"> {}
+
+export interface IUpdateMaintenanceType extends Partial<Omit<IMaintenanceType, "id" | "createdAt" | "updatedAt">> {}
