@@ -7,3 +7,8 @@ export const createMaintenanceTypeSchema = Joi.object({
   name: name.required(),
   description: description,
 });
+
+export const updateMaintenanceTypeSchema = Joi.object({
+  name: name,
+  description: description,
+});

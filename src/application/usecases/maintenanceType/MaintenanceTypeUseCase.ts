@@ -1,4 +1,4 @@
-import { ICreateMaintenanceType, IMaintenanceType } from "../../../domain/entities/maintenanceType/IMaintenanceType";
+import { ICreateMaintenanceType, IMaintenanceType, IUpdateMaintenanceType } from "../../../domain/entities/maintenanceType/IMaintenanceType";
 import { IMaintenanceTypeService } from "../../../domain/entities/maintenanceType/IMaintenanceTypeService";
 import { IMaintenanceTypeUseCase } from "../../../domain/entities/maintenanceType/IMaintenanceTypeUseCase";
 import { Message } from "../../../domain/enums/message/Message";
@@ -24,6 +24,14 @@ export class MaintenanceTypeUseCase implements IMaintenanceTypeUseCase {
       }
 
       return maintenanceTypes;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async updateMaintenanceType(id: number, maintenanceType: IUpdateMaintenanceType): Promise<void> {
+    try {
+      await this.maintenanceTypeService.updateMaintenanceType(id, maintenanceType);
     } catch (error) {
       throw error;
     }

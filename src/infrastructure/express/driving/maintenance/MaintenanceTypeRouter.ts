@@ -4,7 +4,7 @@ import { ResponseModel } from "../../response/ResponseModel";
 import { HttpStatusCode } from "../../../../domain/enums/http/HttpStatusCode";
 import { Message } from "../../../../domain/enums/message/Message";
 import { schemaValidator } from "../../middlewares/schemaValidator";
-import { createMaintenanceTypeSchema } from "../../../schemas/maintenanceType/maintenanceTypeSchema";
+import { createMaintenanceTypeSchema, updateMaintenanceTypeSchema } from "../../../schemas/maintenanceType/maintenanceTypeSchema";
 import { IMaintenanceTypeUseCase } from "../../../../domain/entities/maintenanceType/IMaintenanceTypeUseCase";
 
 export class MaintenanceTypeRouter implements IRouterModule {
@@ -22,7 +22,12 @@ export class MaintenanceTypeRouter implements IRouterModule {
     
     this.maintenanceTypeRouter.get("/", async (req, res) => {
       await ResponseModel.manageResponse(this.maintenanceTypeUseCase.getAllMaintenanceTypes(), res, HttpStatusCode.OK, Message.MAINTENANCE_TYPES_OBTAINED_SUCCESSFULLY);
-    })
+    });
+
+    this.maintenanceTypeRouter.patch("/:id", schemaValidator(updateMaintenanceTypeSchema), async (req, res) => {
+      const idToNumber = Number(req.params.id);
+      await ResponseModel.manageResponse(this.maintenanceTypeUseCase.updateMaintenanceType(idToNumber, req.body), res, HttpStatusCode.OK, Message.MAINTENANCE_TYPE_UPDATED_SUCCESSFULLY);
+    });
   }
 
   getRouter(): Router {
