@@ -8,7 +8,7 @@ export class MaintenanceService implements IMaintenanceService {
   async createMaintenance(maintenance: ICreateMaintenance, department_id: number): Promise<void> {
     try {
       const newMaintenance = { ...maintenance, department_id };
-      await this.maintenanceRepository.create(newMaintenance);
+      await this.maintenanceRepository.save(newMaintenance);
     } catch (error) {
       throw error;
     }

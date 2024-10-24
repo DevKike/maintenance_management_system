@@ -4,7 +4,7 @@ import { ResponseModel } from "../../response/ResponseModel";
 import { HttpStatusCode } from "../../../../domain/enums/http/HttpStatusCode";
 import { Message } from "../../../../domain/enums/message/Message";
 import { schemaValidator } from "../../middlewares/schemaValidator";
-import { createMaintenanceTypeSchema } from "../../../schemas/maintenance/maintenanceTypeSchema";
+import { createMaintenanceTypeSchema } from "../../../schemas/maintenanceType/maintenanceTypeSchema";
 import { IMaintenanceTypeUseCase } from "../../../../domain/entities/maintenanceType/IMaintenanceTypeUseCase";
 
 export class MaintenanceTypeRouter implements IRouterModule {

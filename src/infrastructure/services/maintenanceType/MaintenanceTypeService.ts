@@ -8,7 +8,7 @@ export class MaintenanceTypeService implements IMaintenanceTypeService {
 
   async createMaintenanceType(maintenanceType: IMaintenanceType): Promise<void> {
     try {
-      await this.maintenanceTypeRepository.create(maintenanceType);
+      await this.maintenanceTypeRepository.save(maintenanceType);
     } catch (error) {
       throw error;
     }

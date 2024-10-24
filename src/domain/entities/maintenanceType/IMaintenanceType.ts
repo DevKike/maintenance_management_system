@@ -1,6 +1,5 @@
 import { IAssignmentDepartmentTypeMaintenance } from "../assignmentDepartmentTypeMaintenance/IAssignmentDepartmentTypeMaintenance";
 
-
 export interface IMaintenanceType {
   id: number;
   name: string;
@@ -9,3 +8,4 @@ export interface IMaintenanceType {
   updatedAt: Date;
   assignmentDepartmentTypeMaintenances: IAssignmentDepartmentTypeMaintenance[];
 }
+
